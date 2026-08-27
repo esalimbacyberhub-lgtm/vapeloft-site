@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vape Loft — VOOM 70K & Meteor Vapes in Westlands, Nairobi</title>
+<meta name="description" content="Vape Loft sells genuine VOOM 70K disposables and VOOM Meteor rechargeable vapes in Nairobi. 22+ flavors, same-day delivery, order via WhatsApp. Visit us at Purvi House, Westlands.">
+<meta name="keywords" content="vape shop Nairobi, vape Westlands, VOOM 70K Kenya, disposable vape Nairobi, vape delivery Nairobi, Purvi House vape shop">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://vapeloft.co.ke/">
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vape Loft — VOOM 70K & Meteor Vapes in Westlands, Nairobi">
+<meta property="og:description" content="Genuine VOOM 70K disposables and VOOM Meteor rechargeable vapes. 22+ flavors, same-day Nairobi delivery, order via WhatsApp.">
+<meta property="og:url" content="https://vapeloft.co.ke/">
+<meta property="og:locale" content="en_KE">
+
+<!-- Local business structured data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "Vape Loft",
+  "description": "Vape shop selling VOOM 70K disposables and VOOM Meteor rechargeable vapes in Nairobi.",
+  "url": "https://vapeloft.co.ke/",
+  "telephone": "+254758167841",
+  "priceRange": "KSh 3,500",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Purvi House",
+    "addressLocality": "Westlands, Nairobi",
+    "addressCountry": "KE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -1.26589,
+    "longitude": 36.80416
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "10:00",
+    "closes": "21:00"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you deliver in Nairobi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — Vape Loft delivers across Nairobi and surrounding areas. Delivery is charged separately from your order, starting at KSh 200 depending on your location, and most orders placed between 10AM–9PM arrive same-day." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are your VOOM vapes genuine?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — every VOOM 70K disposable and VOOM Meteor rechargeable device sold at Vape Loft is sourced from authorized distributors, sealed and verified before sale." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I order from Vape Loft?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Browse the flavors on the site, tap 'Order via WhatsApp' on the one you want, and confirm your order and delivery details in chat. Payment is on delivery." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is Vape Loft located?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Vape Loft is located at Purvi House, Westlands, Nairobi." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between the VOOM 70K and VOOM Meteor?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The VOOM 70K is a disposable device rated for 70,000 puffs. The VOOM Meteor is a rechargeable, refillable pod system with adjustable 10–30W power, a 1000mAh Type-C battery, and a 24ml tank." }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0E17;
+    --bg2:#12182B;
+    --card:#141B30;
+    --cyan:#00E5FF;
+    --violet:#7C3AED;
+    --magenta:#FF2E9A;
+    --text:#E8EDF7;
+    --muted:#8B96B3;
+    --border:rgba(0,229,255,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; scroll-behavior:smooth;}
+  ::selection{background:var(--magenta); color:#000;}
+  img{max-width:100%; display:block;}
+
+  /* ---------- AGE GATE ---------- */
+  #ageGate{
+    position:fixed; inset:0; z-index:999;
+    background:radial-gradient(ellipse at 50% 30%, #10182e 0%, #05070d 75%);
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column; text-align:center; padding:24px;
+  }
+  #ageGate.hidden{ display:none; }
+  .gate-mark{ font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:0.08em; font-size:14px; color:var(--cyan); text-transform:uppercase; margin-bottom:28px; }
+  .gate-title{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(28px,5vw,44px); line-height:1.15; max-width:560px; margin-bottom:16px; }
+  .gate-sub{ color:var(--muted); max-width:420px; margin-bottom:36px; font-size:15px; line-height:1.6;}
+  .gate-actions{ display:flex; gap:16px; flex-wrap:wrap; justify-content:center;}
+  .btn{ font-family:'Inter',sans-serif; font-weight:600; font-size:15px; padding:14px 32px; border-radius:2px; border:1px solid transparent; cursor:pointer; transition:all .2s ease; letter-spacing:0.01em;}
+  .btn-primary{ background:var(--cyan); color:#001217; }
+  .btn-primary:hover{ box-shadow:0 0 24px rgba(0,229,255,0.5); transform:translateY(-1px); }
+  .btn-ghost{ background:transparent; border-color:var(--border); color:var(--muted);}
+  .btn-ghost:hover{ border-color:var(--muted); color:var(--text);}
+  .gate-legal{ margin-top:28px; font-size:12px; color:#54607e; max-width:420px; }
+  #ageDenied{ position:fixed; inset:0; z-index:1000; background:#05070d; display:none; align-items:center; justify-content:center; text-align:center; padding:24px;}
+  #ageDenied.show{ display:flex; }
+  #ageDenied h2{ font-family:'Space Grotesk',sans-serif; font-size:24px; margin-bottom:10px;}
+  #ageDenied p{ color:var(--muted); max-width:380px; }
+
+  /* ---------- NAV ---------- */
+  header{ position:sticky; top:0; z-index:100; background:rgba(10,14,23,0.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--border);}
+  nav{ max-width:1180px; margin:0 auto; padding:18px 24px; display:flex; align-items:center; justify-content:space-between;}
+  .logo{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; letter-spacing:0.02em;}
+  .logo span{ color:var(--cyan); }
+  .logo small{ display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:0.1em; font-weight:400; margin-top:2px;}
+  .nav-links{ display:flex; gap:32px; list-style:none; }
+  .nav-links a{ color:var(--muted); text-decoration:none; font-size:14px; font-weight:500; transition:color .2s;}
+  .nav-links a:hover{ color:var(--text); }
+  .nav-cta{ background:transparent; border:1px solid var(--cyan); color:var(--cyan); font-family:'IBM Plex Mono',monospace; font-size:13px; padding:9px 18px; border-radius:2px; text-decoration:none; transition:all .2s;}
+  .nav-cta:hover{ background:var(--cyan); color:#001217; }
+  @media(max-width:720px){ .nav-links{ display:none; } }
+
+  /* ---------- HERO SLIDESHOW ---------- */
+  .hero{ position:relative; height:88vh; min-height:560px; overflow:hidden; }
+  .slide{
+    position:absolute; inset:0; opacity:0; transform:scale(1.08);
+    transition:opacity 1.1s ease, transform 6s ease;
+    display:flex; align-items:flex-end;
+  }
+  .slide.active{ opacity:1; transform:scale(1); z-index:2; }
+  .slide-bg{ position:absolute; inset:0; overflow:hidden; }
+  .slide-bg img{ width:100%; height:100%; object-fit:cover; object-position:center 20%; display:block; }
+  .slide-bg::after{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(10,14,23,0.15) 0%, rgba(10,14,23,0.55) 55%, rgba(10,14,23,0.96) 100%);
+  }
+  .slide-content{ position:relative; z-index:3; width:100%; max-width:1180px; margin:0 auto; padding:0 24px 70px; }
+  .slide-eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.15em; color:var(--cyan); text-transform:uppercase; margin-bottom:16px; opacity:0; transform:translateY(16px); transition:all .7s ease .3s;}
+  .slide.active .slide-eyebrow{ opacity:1; transform:translateY(0);}
+  .slide-title{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(40px,8vw,84px); line-height:0.95; max-width:640px; margin-bottom:18px; opacity:0; transform:translateY(24px); transition:all .8s ease .4s;}
+  .slide.active .slide-title{ opacity:1; transform:translateY(0);}
+  .slide-sub{ color:var(--muted); max-width:420px; margin-bottom:28px; font-size:15.5px; line-height:1.6; opacity:0; transform:translateY(20px); transition:all .8s ease .5s;}
+  .slide.active .slide-sub{ opacity:1; transform:translateY(0);}
+  .slide-actions{ display:flex; gap:16px; flex-wrap:wrap; opacity:0; transform:translateY(20px); transition:all .8s ease .6s;}
+  .slide.active .slide-actions{ opacity:1; transform:translateY(0);}
+
+  .hero-dots{ position:absolute; z-index:4; bottom:22px; left:0; right:0; display:flex; justify-content:center; gap:10px; }
+  .dot{ width:28px; height:3px; background:rgba(255,255,255,0.25); border:none; cursor:pointer; border-radius:2px; overflow:hidden; position:relative;}
+  .dot .fill{ position:absolute; inset:0; background:var(--cyan); width:0%; }
+  .dot.active .fill{ animation:fillDot 5s linear forwards; }
+  @keyframes fillDot{ from{width:0%;} to{width:100%;} }
+
+  .hero-nav-arrow{
+    position:absolute; z-index:4; top:50%; transform:translateY(-50%);
+    background:rgba(10,14,23,0.5); border:1px solid var(--border); color:var(--text);
+    width:44px; height:44px; border-radius:50%; cursor:pointer; font-size:18px;
+    display:flex; align-items:center; justify-content:center; transition:all .2s;
+  }
+  .hero-nav-arrow:hover{ border-color:var(--cyan); color:var(--cyan); }
+  .hero-nav-arrow.prev{ left:20px; } .hero-nav-arrow.next{ right:20px; }
+  @media(max-width:600px){ .hero-nav-arrow{ display:none; } }
+
+  /* ---------- CATALOG ---------- */
+  .catalog{ max-width:1180px; margin:0 auto; padding:70px 24px 40px; }
+  .section-head{ margin-bottom:36px; text-align:center; }
+  .section-head .eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.15em; color:var(--cyan); text-transform:uppercase; display:block; margin-bottom:10px;}
+  .section-head h2{ font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700;}
+  .section-head p{ color:var(--muted); margin-top:10px; max-width:460px; margin-left:auto; margin-right:auto; font-size:14.5px;}
+
+  .device-tabs{ display:flex; justify-content:center; gap:10px; margin-bottom:30px; flex-wrap:wrap;}
+  .device-tab{
+    background:var(--bg2); border:1px solid var(--border); color:var(--muted);
+    font-family:'IBM Plex Mono',monospace; font-size:13px; padding:11px 24px; border-radius:24px;
+    cursor:pointer; transition:all .2s; font-weight:500;
+  }
+  .device-tab.active{ background:var(--cyan); color:#001217; border-color:var(--cyan); }
+  .device-tab:not(.active):hover{ border-color:var(--cyan); color:var(--cyan); }
+
+  .meteor-showcase{ display:flex; gap:22px; margin-bottom:36px; align-items:stretch; flex-wrap:wrap;}
+  .meteor-video{
+    width:200px; min-height:280px; border-radius:6px; border:1px solid var(--border);
+    object-fit:cover; flex-shrink:0; background:var(--bg2);
+  }
+  .specs-strip{
+    flex:1; min-width:260px; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px;
+    padding:22px; background:var(--bg2); border:1px solid var(--border); border-radius:6px;
+  }
+  .specs-strip .spec{ font-size:12.5px; color:var(--muted); line-height:1.5;}
+  .specs-strip .spec span{ display:block; font-family:'Space Grotesk',sans-serif; font-weight:700; color:var(--cyan); font-size:15px; margin-bottom:2px;}
+  @media(max-width:600px){ .meteor-video{ width:100%; min-height:220px; } }
+
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:22px; }
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:6px;
+    overflow:hidden; transition:all .25s ease; display:flex; flex-direction:column;
+  }
+  .card:hover{ border-color:rgba(0,229,255,0.5); transform:translateY(-4px); box-shadow:0 14px 34px rgba(0,229,255,0.10);}
+  .card-img{ width:100%; aspect-ratio:1/1; overflow:hidden; }
+  .card-img img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .card-body{ padding:18px 18px 20px; display:flex; flex-direction:column; flex-grow:1; }
+  .card h3{ font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:700; margin-bottom:6px;}
+  .card .puffs{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted); margin-bottom:16px;}
+  .meta-row{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; margin-top:auto;}
+  .price{ font-family:'IBM Plex Mono',monospace; font-size:16px; color:var(--cyan); font-weight:500;}
+  .order-btn{
+    background:transparent; border:1px solid var(--border); color:var(--text);
+    font-size:13px; font-weight:600; padding:11px; border-radius:2px; text-align:center;
+    text-decoration:none; transition:all .2s; display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .order-btn:hover{ background:var(--cyan); color:#001217; border-color:var(--cyan);}
+
+  /* ---------- WHY US ---------- */
+  .strip{ border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-top:80px; background:var(--bg2);}
+  .strip-inner{ max-width:1180px; margin:0 auto; padding:56px 24px; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:32px;}
+  .strip-item .num{ font-family:'IBM Plex Mono',monospace; color:var(--cyan); font-size:13px; margin-bottom:10px;}
+  .strip-item h4{ font-family:'Space Grotesk',sans-serif; font-size:16px; margin-bottom:8px;}
+  .strip-item p{ color:var(--muted); font-size:13.5px; line-height:1.6;}
+
+  /* ---------- FOOTER ---------- */
+  footer{ max-width:1180px; margin:0 auto; padding:60px 24px 40px; }
+  .footer-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px; margin-bottom:36px;}
+  .footer-brand .logo{ margin-bottom:12px; }
+  .footer-brand p{ color:var(--muted); font-size:13.5px; max-width:280px; line-height:1.6;}
+  .footer-links{ display:flex; gap:60px; flex-wrap:wrap;}
+  .footer-col h5{ font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px;}
+  .footer-col a{ display:block; color:var(--text); text-decoration:none; font-size:13.5px; margin-bottom:10px; opacity:0.85;}
+  .footer-col a:hover{ color:var(--cyan); }
+  .legal-note{ border-top:1px solid var(--border); padding-top:24px; font-size:12px; color:#54607e; line-height:1.7;}
+
+  @media(max-width:600px){ .footer-top{ flex-direction:column; } }
+</style>
+</head>
+<body>
+
+  <!-- AGE GATE -->
+  <div id="ageGate">
+    <div class="gate-mark">Vape Loft</div>
+    <h2 class="gate-title">Before the clouds roll in — confirm you're 18+</h2>
+    <p class="gate-sub">This site sells vaping products intended for adults 18 years and older. You must confirm your age to continue.</p>
+    <div class="gate-actions">
+      <button class="btn btn-primary" onclick="confirmAge(true)">I'm 18 or older — Enter</button>
+      <button class="btn btn-ghost" onclick="confirmAge(false)">I'm under 18</button>
+    </div>
+    <p class="gate-legal">By entering, you confirm you are of legal age to purchase vaping products in your jurisdiction. Vape Loft promotes responsible use and does not sell to minors.</p>
+  </div>
+
+  <div id="ageDenied">
+    <div>
+      <h2>Access restricted</h2>
+      <p>You must be 18 or older to view this site. Please come back once you meet the age requirement.</p>
+    </div>
+  </div>
+
+  <!-- SITE -->
+  <div id="site" style="display:none;">
+    <h1 style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;">Vape Loft — VOOM 70K Disposable & Meteor Rechargeable Vape Shop in Westlands, Nairobi</h1>
+    <header>
+      <nav>
+        <div class="logo">VAPE <span>LOFT</span><small>VOOM 70K COLLECTION</small></div>
+        <ul class="nav-links">
+          <li><a href="#catalog">Flavors</a></li>
+          <li><a href="#delivery">Delivery</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#visit">Visit Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a class="nav-cta" href="https://wa.me/254758167841?text=Hi%20Vape%20Loft%2C%20I%20have%20a%20question" target="_blank">WhatsApp Us</a>
+      </nav>
+    </header>
+
+    <!-- HERO SLIDESHOW -->
+    <section class="hero" id="hero">
+      <button class="hero-nav-arrow prev" onclick="prevSlide()">&#8592;</button>
+      <button class="hero-nav-arrow next" onclick="nextSlide()">&#8594;</button>
+      <div id="slideTrack"></div>
+      <div class="hero-dots" id="heroDots"></div>
+    </section>
+
+    <section class="catalog" id="catalog">
+      <div class="section-head">
+        <span class="eyebrow">One Brand. Two Devices.</span>
+        <h2 id="catalogTitle">The VOOM 70K Lineup</h2>
+        <p id="catalogSub">70,000 puffs, dual-tone finish, 22 flavors deep. Every disposable in the Vape Loft catalog — tap any flavor to order on WhatsApp.</p>
+      </div>
+
+      <div class="device-tabs" id="deviceTabs">
+        <button class="device-tab active" data-device="70k">70K Disposable</button>
+        <button class="device-tab" data-device="meteor">Meteor Rechargeable</button>
+        <button class="device-tab" data-device="ultra">70K Ultra</button>
+      </div>
+
+      <div class="meteor-showcase" id="meteorSpecs" style="display:none;">
+        <video class="meteor-video" id="meteorVideo" autoplay muted loop playsinline poster="images/meteor-hero.jpg">
+          <source src="videos/meteor-showcase.mp4" type="video/mp4">
+        </video>
+        <div class="specs-strip" id="meteorSpecGroup">
+          <div class="spec"><span>10–30W</span>Adjustable power gear</div>
+          <div class="spec"><span>1000mAh</span>Type-C rechargeable</div>
+          <div class="spec"><span>24ml</span>Refillable tank</div>
+          <div class="spec"><span>Dual Coils</span>1.05ohm mesh coil</div>
+          <div class="spec"><span>DTL &amp; MTL</span>Airflow control</div>
+          <div class="spec"><span>Starlit</span>Dynamic display</div>
+        </div>
+        <div class="specs-strip" id="ultraSpecGroup" style="display:none;">
+          <div class="spec"><span>70,000</span>Puffs per device</div>
+          <div class="spec"><span>850mAh</span>Type-C rechargeable</div>
+          <div class="spec"><span>Clear Tank</span>See e-liquid level at a glance</div>
+          <div class="spec"><span>Adjustable</span>Sweetness dial</div>
+          <div class="spec"><span>Adjustable</span>Airflow control</div>
+          <div class="spec"><span>Dynamic</span>Real-time puff &amp; power display</div>
+        </div>
+      </div>
+
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section class="strip" id="why">
+      <div class="strip-inner">
+        <div class="strip-item">
+          <div class="num">01</div>
+          <h4>Same-day Nairobi delivery</h4>
+          <p>Order before 4PM and get it same day, most estates covered.</p>
+        </div>
+        <div class="strip-item">
+          <div class="num">02</div>
+          <h4>Pay on delivery</h4>
+          <p>No card or M-Pesa needed upfront — confirm and pay when it arrives.</p>
+        </div>
+        <div class="strip-item">
+          <div class="num">03</div>
+          <h4>Genuine VOOM stock</h4>
+          <p>Sourced directly from authorized distributors, every unit sealed and verified.</p>
+        </div>
+        <div class="strip-item">
+          <div class="num">04</div>
+          <h4>18+ only, always</h4>
+          <p>Age is verified at order confirmation. We don't sell to minors.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog" id="delivery" style="padding-top:70px;">
+      <div class="section-head">
+        <span class="eyebrow">How It Works</span>
+        <h2>Delivery Info</h2>
+        <p>Delivery is charged separately from your order and depends on your location.</p>
+      </div>
+      <div class="strip-inner" style="padding:0;">
+        <div class="strip-item">
+          <div class="num">01</div>
+          <h4>Delivery Hours</h4>
+          <p>10:00 AM – 9:00 PM, daily. Order within these hours for same-day delivery.</p>
+        </div>
+        <div class="strip-item">
+          <div class="num">02</div>
+          <h4>Coverage Area</h4>
+          <p>Nairobi & surrounding areas. Confirm your exact location on WhatsApp before ordering.</p>
+        </div>
+        <div class="strip-item">
+          <div class="num">03</div>
+          <h4>Delivery Fee</h4>
+          <p>Charged separately from the product price — starting at KSh 200, depending on your area.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip" id="visit" style="border-top:none;">
+      <div style="max-width:1180px; margin:0 auto; padding:70px 24px;">
+        <div class="section-head" style="margin-bottom:32px;">
+          <span class="eyebrow">Find Us</span>
+          <h2>Visit the Loft</h2>
+          <p>Purvi House, Westlands, Nairobi. Walk in, or order ahead on WhatsApp for pickup or delivery.</p>
+        </div>
+        <div style="border:1px solid var(--border); border-radius:6px; overflow:hidden; height:380px;">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=36.80016%2C-1.26889%2C36.80816%2C-1.26289&amp;layer=mapnik&amp;marker=-1.26589%2C36.80416"
+            width="100%" height="100%" style="border:0; filter:grayscale(0.15) contrast(1.05);"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:18px; flex-wrap:wrap; gap:12px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--muted);">Purvi House, Westlands, Nairobi</span>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Purvi+House,+Westlands,+Nairobi" target="_blank" class="btn btn-ghost" style="padding:10px 22px; font-size:13px;">Get Directions</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog" id="faq" style="padding-top:70px; padding-bottom:70px;">
+      <div class="section-head">
+        <span class="eyebrow">Good to Know</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div style="max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:18px;">
+        <div class="specs-strip" style="display:block; grid-template-columns:none;">
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; color:var(--text); margin-bottom:8px;">Do you deliver in Nairobi?</h3>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Yes — Vape Loft delivers across Nairobi and surrounding areas. Delivery is charged separately from your order, starting at KSh 200 depending on your location, and most orders placed between 10AM–9PM arrive same-day.</p>
+        </div>
+        <div class="specs-strip" style="display:block; grid-template-columns:none;">
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; color:var(--text); margin-bottom:8px;">Are your VOOM vapes genuine?</h3>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Yes — every VOOM 70K disposable and VOOM Meteor rechargeable device sold at Vape Loft is sourced from authorized distributors, sealed and verified before sale. We don't stock counterfeits.</p>
+        </div>
+        <div class="specs-strip" style="display:block; grid-template-columns:none;">
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; color:var(--text); margin-bottom:8px;">How do I order?</h3>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Browse the flavors above, tap "Order via WhatsApp" on the one you want, and confirm your order and delivery details in chat with us. Payment is on delivery — no card or M-Pesa needed upfront.</p>
+        </div>
+        <div class="specs-strip" style="display:block; grid-template-columns:none;">
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; color:var(--text); margin-bottom:8px;">Where is Vape Loft located?</h3>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">We're at Purvi House, Westlands, Nairobi. You're welcome to walk in, or order ahead on WhatsApp for pickup or delivery. See the map above for exact directions.</p>
+        </div>
+        <div class="specs-strip" style="display:block; grid-template-columns:none;">
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; color:var(--text); margin-bottom:8px;">What's the difference between the 70K and Meteor?</h3>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">The VOOM 70K is a disposable device rated for 70,000 puffs. The VOOM Meteor is a rechargeable, refillable pod system with adjustable 10–30W power, a 1000mAh Type-C battery, and a 24ml tank — built to be topped up and reused rather than thrown away.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">VAPE <span>LOFT</span></div>
+          <p>The home of VOOM 70K in Nairobi. Order on WhatsApp, we handle the rest.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>Contact</h5>
+            <a href="https://wa.me/254758167841" target="_blank">WhatsApp</a>
+            <a href="mailto:hello@vapeloft.co.ke">Email</a>
+            <a href="#">Instagram</a>
+          </div>
+          <div class="footer-col">
+            <h5>Visit Us</h5>
+            <a href="#visit">Purvi House, Westlands, Nairobi</a>
+          </div>
+        </div>
+      </div>
+      <div class="legal-note">
+        Vape Loft sells nicotine vaping products intended for adult smokers 18+. Nicotine is an addictive chemical. Not for sale to minors, pregnant or breastfeeding individuals, or non-smokers. &copy; 2026 Vape Loft. All rights reserved.
+      </div>
+    </footer>
+  </div>
+
+<script>
+  function confirmAge(isAdult){
+    if(isAdult){
+      document.getElementById('ageGate').classList.add('hidden');
+      document.getElementById('site').style.display = 'block';
+    } else {
+      document.getElementById('ageGate').classList.add('hidden');
+      document.getElementById('ageDenied').classList.add('show');
+    }
+  }
+
+  // All flavors — used for both hero slideshow (subset) and full catalog grid
+  const products = [
+    {name:"Lemonade", desc:"Bright citrus lemonade with a cool finish.", img:"images/lemonade.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Kiwi Passionfruit Guava", desc:"Tropical trio — tart, sweet, and juicy.", img:"images/kiwi-passionfruit-guava.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Mexico Mango", desc:"Ripe mango, sun-soaked and smooth.", img:"images/mexico-mango.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Blackberry POP", desc:"Deep blackberry with a fizzy pop finish.", img:"images/blackberry-pop.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Strawberry Ice", desc:"Fresh strawberries over crushed ice.", img:"images/strawberry-ice.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Grape Ice", desc:"Frosty grape, bold and chilled.", img:"images/grape-ice.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Triple Melon Mint", desc:"Three melons layered with cool mint.", img:"images/triple-melon-mint.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Miami Mint", desc:"Sharp, clean mint — all day refreshing.", img:"images/miami-mint.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Cream Tobacco", desc:"Smooth tobacco rounded out with cream.", img:"images/cream-tobacco.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Super Popcorn", desc:"Buttery popcorn, sweet and nostalgic.", img:"images/super-popcorn.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Blue Razz", desc:"Electric blue raspberry, sweet and sharp.", img:"images/blue-razz.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Mixed Berry", desc:"Blueberry, raspberry and blackberry blended.", img:"images/mixed-berry.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Menthol", desc:"Pure icy menthol — clean and sharp.", img:"images/menthol.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Strawberry Watermelon", desc:"Juicy watermelon paired with ripe strawberry.", img:"images/strawberry-watermelon.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Cherry POP", desc:"Sweet cherry with a fizzy pop finish.", img:"images/cherry-pop.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Sour Blue Dust", desc:"Tart blueberry with a sour kick.", img:"images/sour-blue-dust.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Blueberry Ice", desc:"Fresh blueberries over crushed ice.", img:"images/blueberry-ice.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Sour Apple", desc:"Crisp green apple with a tart bite.", img:"images/sour-apple.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Strawberry Kiwi", desc:"Sweet strawberry layered with tangy kiwi.", img:"images/strawberry-kiwi.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Sour Blue Raspberry", desc:"Blue raspberry with a tart, sour edge.", img:"images/sour-blue-raspberry.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Golden Berry", desc:"Tangy golden berries, bright and juicy.", img:"images/golden-berry.jpg", price:"KSh 3,500", device:"70k"},
+    {name:"Peach Ice", desc:"Ripe peach cooled with a frosty finish.", img:"images/peach-ice.jpg", price:"KSh 3,500", device:"70k"},
+  ];
+
+  // VOOM Meteor — rechargeable, wattage-adjustable pod device (10-30W, 1000mAh Type-C, 24ml refillable tank)
+  const meteorProducts = [
+    {name:"Cherry POP", desc:"Sweet cherry with a fizzy pop finish.", img:"images/cherry-pop.jpg", price:"KSh 3,500", device:"meteor"},
+    {name:"Blue Razz", desc:"Electric blue raspberry, sweet and sharp.", img:"images/blue-razz.jpg", price:"KSh 3,500", device:"meteor"},
+    {name:"Sour Blue Dust", desc:"Tart blueberry with a sour kick.", img:"images/sour-blue-dust.jpg", price:"KSh 3,500", device:"meteor"},
+    {name:"Sour Blue Raspberry", desc:"Blue raspberry with a tart, sour edge.", img:"images/sour-blue-raspberry.jpg", price:"KSh 3,500", device:"meteor"},
+    {name:"Lemonade", desc:"Bright citrus lemonade with a cool finish.", img:"images/lemonade.jpg", price:"KSh 3,500", device:"meteor"},
+    {name:"Miami Mint", desc:"Sharp, clean mint — all day refreshing.", img:"images/miami-mint.jpg", price:"KSh 3,500", device:"meteor"},
+    {name:"Black Ice", desc:"Blackcurrant and menthol, dark and cold.", img:"images/black-ice.jpg", price:"KSh 3,500", device:"meteor"},
+  ];
+
+  // VOOM 70K Ultra (Neon Ultra) — clear tank, adjustable sweetness & airflow, 850mAh Type-C rechargeable, dynamic display
+  const ultraProducts = [
+    {name:"Strawberry Kiwi", desc:"Sweet strawberry layered with tangy kiwi.", img:"images/strawberry-kiwi-ultra.jpg", price:"KSh 3,700", device:"ultra"},
+    {name:"Strawberry Ice", desc:"Fresh strawberries over crushed ice.", img:"images/strawberry-ice-ultra.jpg", price:"KSh 3,700", device:"ultra"},
+    {name:"Sour Blue Dust", desc:"Tart blueberry with a sour kick.", img:"images/sour-blue-dust-ultra.jpg", price:"KSh 3,700", device:"ultra"},
+    {name:"Juice Peach", desc:"Ripe, juicy peach — smooth and sweet.", img:"images/juice-peach.jpg", price:"KSh 3,700", device:"ultra"},
+    {name:"Miami Mint", desc:"Sharp, clean mint — all day refreshing.", img:"images/miami-mint-ultra.jpg", price:"KSh 3,700", device:"ultra"},
+    {name:"Mexico Mango", desc:"Ripe mango, sun-soaked and smooth.", img:"images/mexico-mango-ultra.jpg", price:"KSh 3,700", device:"ultra"},
+    {name:"Blackberry POP", desc:"Deep blackberry with a fizzy pop finish.", img:"images/blackberry-pop-ultra.jpg", price:"KSh 3,700", device:"ultra"},
+    {name:"Dragon Fruit Strawberry Ice", desc:"Exotic dragon fruit with cool strawberry ice.", img:"images/dragon-fruit-strawberry-ice.jpg", price:"KSh 3,700", device:"ultra"},
+    {name:"Cherry POP", desc:"Sweet cherry with a fizzy pop finish.", img:"images/cherry-pop-ultra.jpg", price:"KSh 3,700", device:"ultra"},
+    {name:"Mixed Berry", desc:"Blueberry, raspberry and blackberry blended.", img:"images/mixed-berry-ultra.jpg", price:"KSh 3,700", device:"ultra"},
+    {name:"Pineapple Ice", desc:"Tropical pineapple chilled over ice.", img:"images/pineapple-ice.jpg", price:"KSh 3,700", device:"ultra"},
+  ];
+  const allProducts = products.concat(meteorProducts).concat(ultraProducts);
+
+  // Hero slideshow — feature a rotating subset
+  const heroFlavors = ["Lemonade","Kiwi Passionfruit Guava","Mexico Mango","Blackberry POP","Strawberry Ice","Grape Ice","Blue Razz","Peach Ice","Sour Apple","Cherry POP"];
+  const slides = products.filter(p => heroFlavors.includes(p.name));
+
+  const slideTrack = document.getElementById('slideTrack');
+  const dotsWrap = document.getElementById('heroDots');
+  let current = 0;
+  let timer;
+
+  slides.forEach((s,i)=>{
+    const waMsg = encodeURIComponent(`Hi Vape Loft! I'd like to order: VOOM 70K ${s.name} — ${s.price}. Please confirm availability and delivery.`);
+    const el = document.createElement('div');
+    el.className = 'slide' + (i===0?' active':'');
+    el.innerHTML = `
+      <div class="slide-bg"><img src="${s.img}" alt="VOOM 70K ${s.name} disposable vape — Vape Loft, Westlands Nairobi" loading="eager"></div>
+      <div class="slide-content">
+        <span class="slide-eyebrow">VOOM 70K &middot; 70,000 Puffs</span>
+        <h2 class="slide-title">${s.name}</h2>
+        <p class="slide-sub">${s.desc}</p>
+        <div class="slide-actions">
+          <a href="https://wa.me/254758167841?text=${waMsg}" target="_blank" class="btn btn-primary">Order via WhatsApp</a>
+          <a href="#catalog" class="btn btn-ghost">See Full Range</a>
+        </div>
+      </div>
+    `;
+    slideTrack.appendChild(el);
+
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i===0?' active':'');
+    dot.innerHTML = '<span class="fill"></span>';
+    dot.addEventListener('click', ()=>goToSlide(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  const slideEls = document.querySelectorAll('.slide');
+  const dotEls = document.querySelectorAll('.dot');
+
+  function goToSlide(i){
+    slideEls[current].classList.remove('active');
+    dotEls[current].classList.remove('active');
+    current = i;
+    slideEls[current].classList.add('active');
+    dotEls[current].classList.add('active');
+    resetTimer();
+  }
+  function nextSlide(){ goToSlide((current+1) % slides.length); }
+  function prevSlide(){ goToSlide((current-1+slides.length) % slides.length); }
+  function resetTimer(){ clearInterval(timer); timer = setInterval(nextSlide, 5000); }
+  resetTimer();
+
+  // Catalog grid — rendered per selected device
+  const grid = document.getElementById('grid');
+  const catalogTitle = document.getElementById('catalogTitle');
+  const catalogSub = document.getElementById('catalogSub');
+  const meteorSpecs = document.getElementById('meteorSpecs');
+
+  const deviceCopy = {
+    "70k": {
+      title: "The VOOM 70K Lineup",
+      sub: "70,000 puffs, dual-tone finish, 22 flavors deep. Every disposable in the Vape Loft catalog — tap any flavor to order on WhatsApp.",
+      deviceLabel: "70,000 puffs",
+      deviceName: "VOOM 70K"
+    },
+    "meteor": {
+      title: "The VOOM Meteor Lineup",
+      sub: "Rechargeable, wattage-adjustable, refillable. The Meteor pod system in 7 flavors — tap any flavor to order on WhatsApp.",
+      deviceLabel: "10–30W Rechargeable",
+      deviceName: "VOOM Meteor"
+    },
+    "ultra": {
+      title: "The VOOM 70K Ultra Lineup",
+      sub: "Clear tank, adjustable sweetness and airflow, 70,000 puffs. The Neon Ultra in 11 flavors — tap any flavor to order on WhatsApp.",
+      deviceLabel: "70,000 puffs · Rechargeable",
+      deviceName: "VOOM 70K Ultra"
+    }
+  };
+
+  function renderCatalog(device){
+    const list = allProducts.filter(p => p.device === device);
+    const copy = deviceCopy[device];
+    catalogTitle.textContent = copy.title;
+    catalogSub.textContent = copy.sub;
+    meteorSpecs.style.display = (device === 'meteor' || device === 'ultra') ? 'flex' : 'none';
+    document.getElementById('meteorVideo').style.display = device === 'meteor' ? 'block' : 'none';
+    document.getElementById('meteorSpecGroup').style.display = device === 'meteor' ? 'grid' : 'none';
+    document.getElementById('ultraSpecGroup').style.display = device === 'ultra' ? 'grid' : 'none';
+
+    grid.innerHTML = '';
+    list.forEach(p=>{
+      const deviceName = copy.deviceName;
+      const waMsg = encodeURIComponent(`Hi Vape Loft! I'd like to order: ${deviceName} ${p.name} — ${p.price}. Please confirm availability and delivery.`);
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="card-img"><img src="${p.img}" alt="${deviceName} ${p.name} flavor — buy online in Nairobi, Vape Loft" loading="lazy"></div>
+        <div class="card-body">
+          <h3>${p.name}</h3>
+          <div class="puffs">${copy.deviceLabel}</div>
+          <div class="meta-row"><span class="price">${p.price}</span></div>
+          <a class="order-btn" href="https://wa.me/254758167841?text=${waMsg}" target="_blank">Order via WhatsApp &rarr;</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  document.querySelectorAll('.device-tab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      document.querySelectorAll('.device-tab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      renderCatalog(tab.dataset.device);
+    });
+  });
+
+  renderCatalog('70k');
+</script>
+</body>
+</html>

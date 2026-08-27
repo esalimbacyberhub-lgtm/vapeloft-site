@@ -1,0 +1,25 @@
+<svg width="900" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vaporGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+
+  <!-- icon mark, no background tile -->
+  <g transform="translate(20, 10)" fill="none" stroke="url(#vaporGrad)" stroke-linecap="round">
+    <path d="M 30 130 C 30 105, 55 105, 55 85 C 55 65, 35 62, 35 47" stroke-width="10"/>
+    <path d="M 60 138 C 60 108, 90 108, 90 80 C 90 52, 65 49, 65 26" stroke-width="12"/>
+    <path d="M 105 133 C 105 113, 125 113, 125 93 C 125 73, 107 70, 107 55" stroke-width="8"/>
+  </g>
+  <circle cx="150" cy="35" r="3.2" fill="#FF2E9A"/>
+  <circle cx="26" cy="26" r="2.4" fill="#00E5FF"/>
+  <rect x="27" y="158" width="98" height="7" rx="3.5" fill="url(#vaporGrad)" transform="translate(20,10)"/>
+
+  <!-- wordmark -->
+  <text x="205" y="128" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="76" letter-spacing="1" fill="#E8EDF7">VAPE</text>
+  <text x="205" y="128" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="76" letter-spacing="1" fill="#00E5FF" transform="translate(228,0)">LOFT</text>
+
+  <!-- tagline -->
+  <text x="207" y="160" font-family="DejaVu Sans Mono, monospace" font-size="17" letter-spacing="3" fill="#8B96B3">VOOM 70K &amp; METEOR · WESTLANDS</text>
+</svg>
