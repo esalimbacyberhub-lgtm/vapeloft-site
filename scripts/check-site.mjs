@@ -242,6 +242,7 @@ for (const [file, src] of Object.entries(html)) {
 
 // ============ 8. product pages ============
 section('8. Product pages (links, images, JSON-LD, sitemap)');
+const PRODUCT_PAGES_LIST = ['voom-70k-kenya', 'voom-orbis-15k-kenya', 'voom-aura-13k-pod-system-kenya', 'nine-star-bar-plus-kenya'];
 const PRODUCT_PAGES = {
   'voom-70k-kenya': { price: '4500', name: 'VOOM 70K', flavours: 22 },
   'voom-orbis-15k-kenya': { price: '2000', name: 'VOOM Orbis 15K', flavours: 8 },
@@ -288,6 +289,31 @@ for (const [slug, spec] of Object.entries(PRODUCT_PAGES)) {
 if (api) {
   const priceOf = (dev) => [...new Set(api.allProducts.filter((p) => p.device === dev).map((p) => p.price))];
   check(priceOf('70k')[0] === 'KSh 4,500' && priceOf('orbis')[0] === 'KSh 2,000' && priceOf('aura')[0] === 'KSh 2,600' && priceOf('ninestar')[0] === null, 'product page prices match homepage data');
+}
+
+// ============ 9. landing pages (vapes-nairobi, vapes-kenya) ============
+section('9. Landing pages: vapes-nairobi, vapes-kenya');
+for (const slug of ['vapes-nairobi', 'vapes-kenya']) {
+  const f = `${slug}/index.html`, u = `/${slug}/`;
+  check(exists(f), `${f} exists`);
+  if (!exists(f)) continue;
+  const src = html[f] ?? read(f);
+  check(locs.includes(ORIGIN + u), `${slug}: listed in sitemap.xml`);
+  check((src.match(/<h1[\s>]/g) || []).length === 1, `${slug}: exactly one H1`);
+  check(html['index.html'].includes(`href="${u}"`), `${slug}: linked from homepage footer`);
+  for (const l of ['voom-70k-kenya', 'voom-orbis-15k-kenya', 'voom-aura-13k-pod-system-kenya', 'nine-star-bar-plus-kenya', 'vape-delivery-nairobi', 'vape-delivery-kenya'])
+    check(src.includes(`href="/${l}/"`), `${slug}: links to /${l}/`);
+  for (const p of PRODUCT_PAGES_LIST) check((html[`${p}/index.html`] || '').includes(`href="${u}"`), `${p}: footer links to ${u}`);
+  const lds = inlineScripts(src).filter((x) => /ld\+json/.test(x.attrs)).map((x) => JSON.parse(x.code));
+  const nq = lds.find((j) => j['@type'] === 'FAQPage')?.mainEntity?.length || 0;
+  check(nq >= 5 && (src.match(/<details class="faq">/g) || []).length === nq, `${slug}: FAQPage JSON-LD (${nq}) matches visible FAQ`);
+  check(!!lds.find((j) => j['@type'] === 'BreadcrumbList'), `${slug}: BreadcrumbList JSON-LD`);
+  check(/from KSh 200, depending on distance/.test(src) && /courier or PSV/.test(src), `${slug}: rider fee and courier facts`);
+  // price table must match the homepage data
+  if (api) for (const [dev, label] of [['70k', 'VOOM 70K'], ['ultra', 'VOOM 70K Ultra'], ['meteor', 'VOOM Meteor'], ['orbis', 'VOOM Orbis 15K'], ['aura', 'VOOM Aura 13K Pod + Battery']]) {
+    const price = api.allProducts.find((p) => p.device === dev).price;
+    check(new RegExp(`${label.replace(/[+]/g, '\\+')}</a><br>[\\s\\S]*?<td>\\d+</td><td>${price}</td>`).test(src), `${slug}: ${label} price ${price} matches homepage data`);
+  }
 }
 
 console.log(`\n${failures ? 'FAILED' : 'PASSED'}: ${passes} checks passed, ${failures} failed`);
