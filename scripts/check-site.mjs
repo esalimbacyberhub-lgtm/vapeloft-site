@@ -154,6 +154,10 @@ const homeLd = inlineScripts(html['index.html']).filter((s) => /ld\+json/.test(s
 const store = homeLd.find((j) => j['@type'] === 'OnlineStore');
 const areas = [].concat(store?.areaServed || []).map((a) => a.name);
 check(areas.includes('Nairobi') && areas.includes('Kenya'), `homepage areaServed includes Nairobi and Kenya (${areas.join(', ')})`);
+const hrs = store?.openingHoursSpecification;
+check(store?.telephone === '+' + WA_NUMBER && store?.contactPoint?.telephone === '+' + WA_NUMBER, 'homepage JSON-LD phone matches the WhatsApp number');
+check(hrs?.opens === '09:00' && hrs?.closes === '23:30' && [].concat(hrs?.dayOfWeek || []).length === 7, 'homepage JSON-LD hours are daily 09:00-23:30');
+check(store?.address?.addressCountry === 'KE' && /Westlands/.test(store?.address?.addressLocality || '') && !('streetAddress' in (store?.address || {})), 'homepage JSON-LD address is Westlands, Nairobi with no street address');
 check(/Nairobi-based, delivering across Kenya/.test(store?.description || ''), 'homepage JSON-LD description says "Nairobi-based, delivering across Kenya"');
 
 // ============ 5. wa.me encoding ============
