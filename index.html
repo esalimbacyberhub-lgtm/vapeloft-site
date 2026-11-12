@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vape Loft — VOOM, Nine Star &amp; More Vapes in Westlands, Nairobi</title>
-<meta name="description" content="Vape Loft sells VOOM (70K, Ultra, Meteor, Orbis 15K, Aura 13K), Nine Star Bar Plus, Vapegin, Lost Mary, Elfbar, Raya and Solo Bar vapes in Nairobi. Delivery in 10 to 40 minutes, order on WhatsApp 9am to 11:30pm. Adults 18+ only.">
+<meta name="description" content="VOOM, Nine Star, Vapegin, Lost Mary, Elfbar, Raya and Solo Bar vapes. Nairobi-based, delivering across Kenya. Order on WhatsApp. Adults 18+ only.">
 <meta name="keywords" content="vape shop Nairobi, vape Westlands, VOOM 70K Kenya, VOOM Orbis, VOOM Aura, Nine Star Bar Plus, Lost Mary, Elfbar, Raya, Solo Bar, Vapegin, disposable vape Nairobi, vape delivery Nairobi">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://vapeloft.co.ke/">
@@ -12,9 +12,10 @@
 <!-- Open Graph / social sharing -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vape Loft — VOOM, Nine Star &amp; More Vapes in Westlands, Nairobi">
-<meta property="og:description" content="VOOM, Nine Star, Vapegin, Lost Mary, Elfbar, Raya and Solo Bar vapes. Nairobi delivery in 10 to 40 minutes, order via WhatsApp. Adults 18+ only.">
+<meta property="og:description" content="VOOM, Nine Star, Vapegin, Lost Mary, Elfbar, Raya and Solo Bar vapes. Nairobi-based, delivering across Kenya. Order via WhatsApp. Adults 18+ only.">
 <meta property="og:url" content="https://vapeloft.co.ke/">
 <meta property="og:locale" content="en_KE">
+<meta property="og:site_name" content="Vape Loft">
 
 <!-- Local business structured data for Google -->
 <script type="application/ld+json">
@@ -22,10 +23,10 @@
   "@context": "https://schema.org",
   "@type": "OnlineStore",
   "name": "Vape Loft",
-  "description": "Online vape store in Nairobi selling VOOM (70K, 70K Ultra, Meteor, Orbis 15K, Aura 13K), Nine Star Bar Plus, Vapegin, Lost Mary, Elfbar, Raya and Solo Bar vapes, delivered across Nairobi. Adults 18+ only.",
+  "description": "Online vape store. Nairobi-based, delivering across Kenya. Sells VOOM (70K, 70K Ultra, Meteor, Orbis 15K, Aura 13K), Nine Star Bar Plus, Vapegin, Lost Mary, Elfbar, Raya and Solo Bar vapes. Adults 18+ only.",
   "url": "https://vapeloft.co.ke/",
   "telephone": "+254742405841",
-  "areaServed": {"@type": "City", "name": "Nairobi"}
+  "areaServed": [{"@type": "City", "name": "Nairobi"}, {"@type": "Country", "name": "Kenya"}]
 }
 </script>
 
@@ -37,7 +38,7 @@
     {
       "@type": "Question",
       "name": "Do you deliver in Nairobi?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes — Vape Loft delivers across Nairobi and the surrounding region. Delivery usually takes 10 to 40 minutes depending on your location, and the fee is KSh 200 to 1,000, charged separately from your order. We take orders from 9AM to 11:30PM daily." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — in Nairobi and its environs our rider delivers to you. The delivery fee is from KSh 200, depending on distance, charged separately from your order, and you pay on delivery. We take orders from 9AM to 11:30PM daily." }
     },
     {
       "@type": "Question",
@@ -47,12 +48,22 @@
     {
       "@type": "Question",
       "name": "How do I order from Vape Loft?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Browse the flavors on the site, tap 'Order via WhatsApp' on the one you want, and confirm your order and delivery details in chat. Payment is on delivery." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Browse the flavors on the site, tap 'Order via WhatsApp' on the one you want, and confirm your order and delivery details in chat. In Nairobi you pay on delivery; outside Nairobi we confirm the details and payment is made first." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you deliver outside Nairobi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — Vape Loft is based in Nairobi (Westlands) and delivers across Kenya. Outside Nairobi, orders are sent by courier or PSV (for example G4S, Easy Coach and other recommended PSVs). Payment is made first, before we send, and a receipt follows. We confirm the delivery fee and time on WhatsApp." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a minimum order?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. There is no minimum order — you can order as many items as you like." }
     },
     {
       "@type": "Question",
       "name": "Where is Vape Loft located?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Vape Loft is an online store based in Westlands, Nairobi. Order on WhatsApp and we deliver across Nairobi and the surrounding region." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Vape Loft is an online store based in Nairobi (Westlands). Order on WhatsApp and we deliver across Kenya." }
     },
     {
       "@type": "Question",
@@ -83,6 +94,10 @@
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html,body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; scroll-behavior:smooth;}
+  body{ padding-bottom:calc(88px + env(safe-area-inset-bottom)); }
+  :focus-visible{ outline:3px solid var(--cyan); outline-offset:2px; }
+  .btn,.nav-cta,.order-btn,.device-tab{ min-height:44px; }
+  a.btn{ display:inline-flex; align-items:center; justify-content:center; text-decoration:none; }
   ::selection{background:var(--magenta); color:#000;}
   img{max-width:100%; display:block;}
 
@@ -103,7 +118,7 @@
   .btn-primary:hover{ box-shadow:0 0 24px rgba(0,229,255,0.5); transform:translateY(-1px); }
   .btn-ghost{ background:transparent; border-color:var(--border); color:var(--muted);}
   .btn-ghost:hover{ border-color:var(--muted); color:var(--text);}
-  .gate-legal{ margin-top:28px; font-size:12px; color:#54607e; max-width:420px; }
+  .gate-legal{ margin-top:28px; font-size:12px; color:#8a95b2; max-width:420px; }
   #ageDenied{ position:fixed; inset:0; z-index:1000; background:#05070d; display:none; align-items:center; justify-content:center; text-align:center; padding:24px;}
   #ageDenied.show{ display:flex; }
   #ageDenied h2{ font-family:'Space Grotesk',sans-serif; font-size:24px; margin-bottom:10px;}
@@ -118,18 +133,18 @@
   .nav-links{ display:flex; gap:32px; list-style:none; }
   .nav-links a{ color:var(--muted); text-decoration:none; font-size:14px; font-weight:500; transition:color .2s;}
   .nav-links a:hover{ color:var(--text); }
-  .nav-cta{ background:transparent; border:1px solid var(--cyan); color:var(--cyan); font-family:'IBM Plex Mono',monospace; font-size:13px; padding:9px 18px; border-radius:2px; text-decoration:none; transition:all .2s;}
+  .nav-cta{ display:inline-flex; align-items:center; background:transparent; border:1px solid var(--cyan); color:var(--cyan); font-family:'IBM Plex Mono',monospace; font-size:13px; padding:9px 18px; border-radius:2px; text-decoration:none; transition:all .2s;}
   .nav-cta:hover{ background:var(--cyan); color:#001217; }
   @media(max-width:720px){ .nav-links{ display:none; } }
 
   /* ---------- HERO SLIDESHOW ---------- */
   .hero{ position:relative; height:88vh; min-height:560px; overflow:hidden; }
   .slide{
-    position:absolute; inset:0; opacity:0; transform:scale(1.08);
-    transition:opacity 1.1s ease, transform 6s ease;
+    position:absolute; inset:0; opacity:0; transform:scale(1.08); visibility:hidden;
+    transition:opacity 1.1s ease, transform 6s ease, visibility 0s linear 1.1s;
     display:flex; align-items:flex-end;
   }
-  .slide.active{ opacity:1; transform:scale(1); z-index:2; }
+  .slide.active{ opacity:1; transform:scale(1); z-index:2; visibility:visible; transition-delay:0s; }
   .slide-bg{ position:absolute; inset:0; overflow:hidden; }
   .slide-bg img{ width:100%; height:100%; object-fit:cover; object-position:center 20%; display:block; }
   .slide-bg::after{
@@ -146,9 +161,10 @@
   .slide-actions{ display:flex; gap:16px; flex-wrap:wrap; opacity:0; transform:translateY(20px); transition:all .8s ease .6s;}
   .slide.active .slide-actions{ opacity:1; transform:translateY(0);}
 
-  .hero-dots{ position:absolute; z-index:4; bottom:22px; left:0; right:0; display:flex; justify-content:center; gap:10px; }
-  .dot{ width:28px; height:3px; background:rgba(255,255,255,0.25); border:none; cursor:pointer; border-radius:2px; overflow:hidden; position:relative;}
-  .dot .fill{ position:absolute; inset:0; background:var(--cyan); width:0%; }
+  .hero-dots{ position:absolute; z-index:4; bottom:8px; left:0; right:0; display:flex; justify-content:center; gap:10px; }
+  .dot{ width:44px; height:44px; background:none; border:none; cursor:pointer; position:relative;}
+  .dot::before{ content:''; position:absolute; left:0; right:0; top:50%; height:3px; margin-top:-1px; background:rgba(255,255,255,0.25); border-radius:2px; }
+  .dot .fill{ position:absolute; left:0; top:50%; height:3px; margin-top:-1px; border-radius:2px; background:var(--cyan); width:0%; }
   .dot.active .fill{ animation:fillDot 5s linear forwards; }
   @keyframes fillDot{ from{width:0%;} to{width:100%;} }
 
@@ -160,7 +176,12 @@
   }
   .hero-nav-arrow:hover{ border-color:var(--cyan); color:var(--cyan); }
   .hero-nav-arrow.prev{ left:20px; } .hero-nav-arrow.next{ right:20px; }
-  @media(max-width:600px){ .hero-nav-arrow{ display:none; } }
+  @media(max-width:600px){
+    /* dots are too small to tap on phones: use 44px arrows at the bottom corners instead */
+    .hero-dots{ display:none; }
+    .hero-nav-arrow{ top:auto; bottom:10px; transform:none; width:44px; height:44px; }
+    .hero-nav-arrow.prev{ left:12px; } .hero-nav-arrow.next{ right:12px; }
+  }
 
   /* ---------- CATALOG ---------- */
   .catalog{ max-width:1180px; margin:0 auto; padding:70px 24px 40px; }
@@ -169,7 +190,7 @@
   .section-head h2{ font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700;}
   .section-head p{ color:var(--muted); margin-top:10px; max-width:460px; margin-left:auto; margin-right:auto; font-size:14.5px;}
 
-  .device-tabs{ display:flex; justify-content:center; gap:10px; margin-bottom:30px; flex-wrap:wrap;}
+  .device-tabs{ display:flex; justify-content:center; gap:10px; margin-bottom:24px; flex-wrap:wrap;}
   .device-tab{
     background:var(--bg2); border:1px solid var(--border); color:var(--muted);
     font-family:'IBM Plex Mono',monospace; font-size:13px; padding:11px 24px; border-radius:24px;
@@ -202,8 +223,12 @@
   .card-img.placeholder span{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--cyan); letter-spacing:0.08em; text-transform:uppercase; }
   .price.ask{ font-size:14px; color:var(--magenta); }
   .card.text-card .card-body{ padding:22px 20px; }
-  .card.text-card h3{ font-size:18px; }
-  @media(max-width:600px){ .device-tab{ padding:9px 16px; font-size:12px; } }
+  .card.text-card h3{ font-size:18px; min-height:0; }
+  @media(max-width:900px){
+    .device-tabs{ flex-wrap:nowrap; justify-content:flex-start; overflow-x:auto; -webkit-overflow-scrolling:touch; scroll-snap-type:x proximity; scroll-padding:0 24px; scrollbar-width:thin; padding:2px 24px 10px; margin-left:-24px; margin-right:-24px; }
+    .device-tab{ flex:0 0 auto; scroll-snap-align:start; white-space:nowrap; }
+  }
+  @media(max-width:600px){ .device-tab{ padding:9px 16px; font-size:13px; } }
 
   .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:22px; }
   .card{
@@ -214,8 +239,8 @@
   .card-img{ width:100%; aspect-ratio:1/1; overflow:hidden; }
   .card-img img{ width:100%; height:100%; object-fit:cover; display:block; }
   .card-body{ padding:18px 18px 20px; display:flex; flex-direction:column; flex-grow:1; }
-  .card h3{ font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:700; margin-bottom:6px;}
-  .card .puffs{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted); margin-bottom:16px;}
+  .card h3{ font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:700; margin-bottom:6px; line-height:1.25; min-height:2.5em;}
+  .card .puffs{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); margin-bottom:16px;}
   .meta-row{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; margin-top:auto;}
   .price{ font-family:'IBM Plex Mono',monospace; font-size:16px; color:var(--cyan); font-weight:500;}
   .order-btn{
@@ -241,9 +266,88 @@
   .footer-col h5{ font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px;}
   .footer-col a{ display:block; color:var(--text); text-decoration:none; font-size:13.5px; margin-bottom:10px; opacity:0.85;}
   .footer-col a:hover{ color:var(--cyan); }
-  .legal-note{ border-top:1px solid var(--border); padding-top:24px; font-size:12px; color:#54607e; line-height:1.7;}
+  .legal-note{ border-top:1px solid var(--border); padding-top:24px; font-size:12.5px; color:#8a95b2; line-height:1.7;}
 
   @media(max-width:600px){ .footer-top{ flex-direction:column; } }
+
+  /* ---------- QUICK CHIPS + NEED PANEL ---------- */
+  .quick{ background:var(--bg2); border-bottom:1px solid var(--border); }
+  .quick-inner{ max-width:1180px; margin:0 auto; padding:18px 24px; }
+  .quick-label{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--cyan); margin-bottom:10px; }
+  .chips{ display:flex; flex-wrap:wrap; gap:10px; }
+  .chip{ display:inline-flex; align-items:center; min-height:44px; padding:10px 18px; border-radius:24px; border:1px solid var(--border); background:var(--card); color:var(--text); font-size:14.5px; font-weight:600; text-decoration:none; transition:border-color .2s, color .2s; }
+  .chip:hover{ border-color:var(--cyan); color:var(--cyan); }
+  @media(max-width:600px){ .chips{ flex-wrap:nowrap; overflow-x:auto; margin:0 -24px; padding:2px 24px 8px; scroll-snap-type:x proximity; } .chip{ flex:0 0 auto; scroll-snap-align:start; white-space:nowrap; } }
+
+  .need{ max-width:1180px; margin:0 auto; padding:56px 24px 0; }
+  .need-box{ background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:26px 24px; max-width:760px; margin:0 auto; }
+  .need-box h2{ font-family:'Space Grotesk',sans-serif; font-size:26px; margin-bottom:6px; }
+  .need-box > p{ color:var(--muted); font-size:14.5px; line-height:1.6; margin-bottom:18px; }
+  .field{ display:flex; flex-direction:column; gap:6px; margin-bottom:14px; }
+  .field label{ font-size:13.5px; font-weight:600; color:var(--text); }
+  .field label small{ color:var(--muted); font-weight:400; }
+  .field input,.field select,.field textarea{ width:100%; min-height:48px; padding:11px 14px; background:var(--bg); color:var(--text); border:1px solid rgba(139,150,179,.45); border-radius:4px; font:inherit; font-size:16px; }
+  .field textarea{ min-height:96px; resize:vertical; }
+  .field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{ outline:3px solid var(--cyan); outline-offset:1px; border-color:var(--cyan); }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:0 14px; }
+  @media(max-width:600px){ .field-row{ grid-template-columns:1fr; } }
+  .hint{ font-size:13px; color:var(--muted); line-height:1.5; min-height:1.5em; }
+  .btn-wa{ background:var(--cyan); color:#001217; border:1px solid var(--cyan); font-weight:700; font-size:16px; padding:14px 26px; border-radius:3px; cursor:pointer; width:100%; }
+  .btn-wa:hover{ box-shadow:0 0 24px rgba(0,229,255,.45); }
+  .privacy{ font-size:12.5px; color:var(--muted); margin-top:10px; line-height:1.5; }
+
+  /* ---------- SEARCH ---------- */
+  .search-wrap{ max-width:520px; margin:0 auto 18px; }
+  .search-wrap input{ width:100%; min-height:48px; padding:11px 16px; border-radius:24px; background:var(--bg2); color:var(--text); border:1px solid rgba(139,150,179,.45); font:inherit; font-size:16px; }
+  .search-wrap input:focus-visible{ outline:3px solid var(--cyan); outline-offset:1px; border-color:var(--cyan); }
+  .no-results{ grid-column:1/-1; text-align:center; color:var(--muted); padding:28px 0; font-size:15px; }
+  .no-results a{ color:var(--cyan); }
+  .line-tag{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--cyan); margin-bottom:6px; }
+
+  /* ---------- CARD ACTIONS ---------- */
+  .add-row{ display:flex; gap:10px; align-items:stretch; margin-bottom:10px; }
+  .stepper{ display:flex; align-items:center; border:1px solid var(--border); border-radius:4px; background:var(--bg2); flex:0 0 auto; }
+  .stepper button{ width:44px; min-height:44px; background:none; border:0; color:var(--text); font-size:20px; cursor:pointer; }
+  .stepper button:hover{ color:var(--cyan); }
+  .stepper .q{ min-width:28px; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:15px; }
+  .add-btn{ flex:1; min-height:44px; background:var(--cyan); color:#001217; border:1px solid var(--cyan); border-radius:4px; font-weight:700; font-size:14px; cursor:pointer; padding:0 8px; }
+  .add-btn:hover{ box-shadow:0 0 18px rgba(0,229,255,.4); }
+  .in-list{ font-size:12.5px; color:var(--cyan); min-height:1.4em; margin-bottom:6px; font-family:'IBM Plex Mono',monospace; }
+  .order-btn{ font-size:13.5px; }
+
+  /* ---------- FLOATING UI ---------- */
+  .wa-fab{ position:fixed; right:max(16px, env(safe-area-inset-right)); bottom:calc(16px + env(safe-area-inset-bottom)); z-index:90; display:inline-flex; align-items:center; gap:8px; min-height:48px; padding:0 18px 0 14px; border-radius:28px; background:var(--cyan); color:#001217; font-weight:700; font-size:14.5px; text-decoration:none; box-shadow:0 6px 22px rgba(0,0,0,.45); transition:bottom .2s ease; }
+  .wa-fab svg{ width:22px; height:22px; flex:none; }
+  body.has-list .wa-fab{ bottom:calc(84px + env(safe-area-inset-bottom)); }
+  body.has-list{ padding-bottom:calc(150px + env(safe-area-inset-bottom)); }
+  body.sheet-open .wa-fab{ display:none; }
+  .list-bar{ position:fixed; left:0; right:0; bottom:0; z-index:95; padding:10px max(16px, env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); background:rgba(18,24,43,.97); border-top:1px solid var(--cyan); display:none; }
+  body.has-list .list-bar{ display:block; }
+  .list-bar button{ width:100%; max-width:560px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; min-height:52px; padding:0 18px; background:var(--cyan); color:#001217; border:0; border-radius:4px; font-weight:700; font-size:16px; cursor:pointer; }
+  .sheet-bg{ position:fixed; inset:0; z-index:200; background:rgba(5,7,13,.7); display:none; }
+  .sheet-bg.open{ display:block; }
+  .sheet{ position:absolute; left:0; right:0; bottom:0; max-height:92vh; overflow-y:auto; background:var(--bg2); border-top:1px solid var(--cyan); border-radius:14px 14px 0 0; padding:18px 18px calc(18px + env(safe-area-inset-bottom)); max-width:640px; margin:0 auto; }
+  .sheet-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+  .sheet-head h2{ font-family:'Space Grotesk',sans-serif; font-size:22px; }
+  .icon-btn{ min-width:44px; min-height:44px; background:none; border:1px solid var(--border); border-radius:4px; color:var(--text); font-size:20px; cursor:pointer; }
+  .li{ display:grid; grid-template-columns:1fr auto; gap:6px 12px; align-items:center; padding:12px 0; border-bottom:1px solid var(--border); }
+  .li .nm{ font-weight:600; font-size:15px; }
+  .li .pr{ color:var(--muted); font-size:13.5px; font-family:'IBM Plex Mono',monospace; }
+  .li .pr.ask{ color:var(--magenta); }
+  .li .ctl{ display:flex; align-items:center; gap:8px; grid-column:1/-1; }
+  .li .rm{ margin-left:auto; min-height:44px; padding:0 12px; background:none; border:1px solid var(--border); border-radius:4px; color:var(--muted); cursor:pointer; font-size:13.5px; }
+  .total{ display:flex; justify-content:space-between; font-weight:700; padding:14px 0 4px; font-size:16px; }
+  .total-note{ font-size:13px; color:var(--muted); margin-bottom:14px; line-height:1.5; }
+  .sheet-empty{ color:var(--muted); padding:18px 0; }
+  .link-btn{ background:none; border:0; color:var(--muted); text-decoration:underline; min-height:44px; cursor:pointer; font-size:14px; margin-top:6px; }
+
+  @media (prefers-reduced-motion: reduce){
+    html,body{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; transition-delay:0s !important; }
+    .slide{ transform:none; }
+    .dot.active .fill{ width:100%; }
+    .card:hover{ transform:none; }
+  }
 </style>
 </head>
 <body>
@@ -277,6 +381,7 @@
           <li><a href="#catalog">Flavors</a></li>
           <li><a href="#more-devices">More Devices</a></li>
           <li><a href="#delivery">Delivery</a></li>
+          <li><a href="/vape-delivery-kenya/">Across Kenya</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -292,6 +397,45 @@
       <div class="hero-dots" id="heroDots"></div>
     </section>
 
+    <!-- QUICK ACTIONS -->
+    <section class="quick" aria-label="Quick questions on WhatsApp">
+      <div class="quick-inner">
+        <div class="quick-label">Ask us on WhatsApp</div>
+        <div class="chips">
+          <a class="chip" href="https://wa.me/254742405841?text=Hi%20Vape%20Loft%21%20What%27s%20available%20right%20now%3F" target="_blank" rel="noopener">What's available?</a>
+          <a class="chip" href="https://wa.me/254742405841?text=Hi%20Vape%20Loft%21%20Can%20you%20help%20me%20choose%20a%20flavour%3F" target="_blank" rel="noopener">Help me choose a flavour</a>
+          <a class="chip" href="https://wa.me/254742405841?text=Hi%20Vape%20Loft%21%20Do%20you%20deliver%20to%20my%20town%3F%20My%20town%20is%3A" target="_blank" rel="noopener">Delivery to my town</a>
+          <a class="chip" href="https://wa.me/254742405841?text=Hi%20Vape%20Loft%21%20Which%20pod%20refills%20do%20you%20have%20available%3F" target="_blank" rel="noopener">Pod refills</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELL US WHAT YOU NEED -->
+    <section class="need" id="need">
+      <div class="need-box">
+        <h2>Tell us what you need</h2>
+        <p>Fill in what you know and we will open WhatsApp with a ready-made message. Nairobi and environs: delivered by our rider, pay on delivery. Rest of Kenya: <a href="/vape-delivery-kenya/" style="color:var(--cyan)">courier or PSV</a>.</p>
+        <form id="needForm" autocomplete="off" novalidate>
+          <div class="field-row">
+            <div class="field"><label for="nName">Your name <small>(optional)</small></label><input id="nName" type="text" maxlength="60" autocomplete="given-name"></div>
+            <div class="field"><label for="nTown">Town or area</label><input id="nTown" type="text" maxlength="80" placeholder="e.g. Westlands, Nakuru"></div>
+          </div>
+          <div class="field">
+            <label for="nType">Delivery type</label>
+            <select id="nType">
+              <option value="">Not sure yet</option>
+              <option value="nairobi">Nairobi rider</option>
+              <option value="outside">Outside Nairobi by courier or PSV</option>
+            </select>
+            <div class="hint" id="nHint" aria-live="polite"></div>
+          </div>
+          <div class="field"><label for="nWant">What do you want?</label><textarea id="nWant" maxlength="500" placeholder="Device, flavour, how many... or just ask us"></textarea></div>
+          <button type="submit" class="btn-wa">Send on WhatsApp</button>
+          <p class="privacy">Nothing is stored or sent anywhere else. This only opens a WhatsApp chat with the message filled in. Adults 18+ only. Contains nicotine.</p>
+        </form>
+      </div>
+    </section>
+
     <section class="catalog" id="catalog">
       <div class="section-head">
         <span class="eyebrow">Disposables. Pods. More.</span>
@@ -299,7 +443,11 @@
         <p id="catalogSub">70,000 puffs, dual-tone finish, 22 flavors deep. Every disposable in the Vape Loft catalog — tap any flavor to order on WhatsApp.</p>
       </div>
 
-      <div class="device-tabs" id="deviceTabs">
+      <div class="search-wrap">
+        <input type="search" id="flavSearch" placeholder="Search flavours, e.g. mango" aria-label="Search flavours" autocomplete="off">
+      </div>
+
+      <div class="device-tabs" id="deviceTabs" role="group" aria-label="Choose a line">
         <button class="device-tab active" data-device="70k">70K Disposable</button>
         <button class="device-tab" data-device="meteor">Meteor Rechargeable</button>
         <button class="device-tab" data-device="ultra">70K Ultra</button>
@@ -352,12 +500,12 @@
         <div class="strip-item">
           <div class="num">01</div>
           <h4>Fast Nairobi delivery</h4>
-          <p>Delivery usually takes 10 to 40 minutes, depending on your location.</p>
+          <p>Delivery usually takes 10 to 40 minutes, depending on your location. Delivered across Kenya too.</p>
         </div>
         <div class="strip-item">
           <div class="num">02</div>
-          <h4>Pay on delivery</h4>
-          <p>No card or M-Pesa needed upfront — confirm and pay when it arrives.</p>
+          <h4>Pay on delivery in Nairobi</h4>
+          <p>Our Nairobi rider takes payment when it arrives. Outside Nairobi, payment is made first and a receipt follows.</p>
         </div>
         <div class="strip-item">
           <div class="num">03</div>
@@ -376,24 +524,30 @@
       <div class="section-head">
         <span class="eyebrow">How It Works</span>
         <h2>Delivery Info</h2>
-        <p>Delivery is charged separately from your order and depends on your location.</p>
+        <p>Nairobi-based, delivering across Kenya. Delivery is charged separately from your order.</p>
       </div>
       <div class="strip-inner" style="padding:0;">
         <div class="strip-item">
           <div class="num">01</div>
-          <h4>Delivery Hours</h4>
+          <h4>Order Hours</h4>
           <p>Orders are taken 9:00 AM – 11:30 PM, daily. Delivery usually takes 10 to 40 minutes.</p>
         </div>
         <div class="strip-item">
           <div class="num">02</div>
-          <h4>Coverage Area</h4>
-          <p>Nairobi & surrounding areas. Confirm your exact location on WhatsApp before ordering.</p>
+          <h4>Nairobi and environs</h4>
+          <p>Delivered by our rider. Pay on delivery. Send your location on WhatsApp so we can confirm.</p>
         </div>
         <div class="strip-item">
           <div class="num">03</div>
-          <h4>Delivery Fee</h4>
-          <p>Charged separately from the product price — KSh 200 to 1,000, depending on your area.</p>
-          <p><a href="/vape-delivery-nairobi/" style="color:var(--cyan)">Full delivery details</a></p>
+          <h4>Rider fee in Nairobi</h4>
+          <p>From KSh 200, depending on distance. Charged separately from the product price.</p>
+          <p><a href="/vape-delivery-nairobi/" style="color:var(--cyan)">Nairobi delivery details</a></p>
+        </div>
+        <div class="strip-item">
+          <div class="num">04</div>
+          <h4>Rest of Kenya</h4>
+          <p>Sent by courier or PSV (for example G4S, Easy Coach). Payment is made first and a receipt follows. We confirm the fee and time on WhatsApp.</p>
+          <p><a href="/vape-delivery-kenya/" style="color:var(--cyan)">Delivery across Kenya</a></p>
         </div>
       </div>
     </section>
@@ -406,7 +560,7 @@
       <div style="max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:18px;">
         <div class="specs-strip" style="display:block; grid-template-columns:none;">
           <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; color:var(--text); margin-bottom:8px;">Do you deliver in Nairobi?</h3>
-          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Yes — Vape Loft delivers across Nairobi and the surrounding region. Delivery usually takes 10 to 40 minutes depending on your location, and the fee is KSh 200 to 1,000, charged separately from your order. We take orders from 9AM to 11:30PM daily.</p>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Yes — in Nairobi and its environs our rider delivers to you. The delivery fee is from KSh 200, depending on distance, charged separately from your order, and you pay on delivery. We take orders from 9AM to 11:30PM daily. See also <a href="/vape-delivery-kenya/" style="color:var(--cyan)">delivery across Kenya</a>.</p>
         </div>
         <div class="specs-strip" style="display:block; grid-template-columns:none;">
           <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; color:var(--text); margin-bottom:8px;">Are your VOOM vapes genuine?</h3>
@@ -414,11 +568,19 @@
         </div>
         <div class="specs-strip" style="display:block; grid-template-columns:none;">
           <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; color:var(--text); margin-bottom:8px;">How do I order?</h3>
-          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Browse the flavors above, tap "Order via WhatsApp" on the one you want, and confirm your order and delivery details in chat with us. Payment is on delivery — no card or M-Pesa needed upfront.</p>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Browse the flavors above, tap "Order via WhatsApp" on the one you want, and confirm your order and delivery details in chat with us. In Nairobi you pay on delivery. Outside Nairobi, we confirm the details and payment is made first.</p>
+        </div>
+        <div class="specs-strip" style="display:block; grid-template-columns:none;">
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; color:var(--text); margin-bottom:8px;">Do you deliver outside Nairobi?</h3>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Yes — we are based in Nairobi (Westlands) and deliver across Kenya. Outside Nairobi, orders are sent by courier or PSV (for example G4S, Easy Coach and other recommended PSVs). Payment is made first, before we send, and a receipt follows. We confirm the delivery fee and time on WhatsApp. <a href="/vape-delivery-kenya/" style="color:var(--cyan)">How delivery across Kenya works</a>.</p>
+        </div>
+        <div class="specs-strip" style="display:block; grid-template-columns:none;">
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; color:var(--text); margin-bottom:8px;">Is there a minimum order?</h3>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">No. There is no minimum order — you can order as many items as you like.</p>
         </div>
         <div class="specs-strip" style="display:block; grid-template-columns:none;">
           <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; color:var(--text); margin-bottom:8px;">Where is Vape Loft located?</h3>
-          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Vape Loft is an online store based in Westlands, Nairobi. Order on WhatsApp and we deliver across Nairobi and the surrounding region.</p>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Vape Loft is an online store based in Nairobi (Westlands). Order on WhatsApp and we deliver across Kenya.</p>
         </div>
         <div class="specs-strip" style="display:block; grid-template-columns:none;">
           <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; color:var(--text); margin-bottom:8px;">What's the difference between the 70K and Meteor?</h3>
@@ -435,7 +597,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="logo">VAPE <span>LOFT</span></div>
-          <p>VOOM, Nine Star and more vapes in Nairobi. Order on WhatsApp, we handle the rest.</p>
+          <p>VOOM, Nine Star and more vapes. Nairobi-based, delivering across Kenya. Order on WhatsApp, we handle the rest.</p>
         </div>
         <div class="footer-links">
           <div class="footer-col">
@@ -445,6 +607,7 @@
           <div class="footer-col">
             <h5>Delivery</h5>
             <a href="/vape-delivery-nairobi/">Nairobi delivery</a>
+            <a href="/vape-delivery-kenya/">Delivery across Kenya</a>
           </div>
         </div>
       </div>
@@ -452,6 +615,31 @@
         Vape Loft sells nicotine vaping products intended for adult smokers 18+. Contains nicotine. Adults 18+ only. Nicotine is an addictive chemical. Not for sale to minors, pregnant or breastfeeding individuals, or non-smokers. &copy; 2026 Vape Loft. All rights reserved.
       </div>
     </footer>
+  </div>
+
+<!-- FLOATING UI -->
+  <a class="wa-fab" id="waFab" href="https://wa.me/254742405841?text=Hi%20Vape%20Loft%21%20What%20do%20you%20have%20available%20today%3F" target="_blank" rel="noopener" aria-label="Ask on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.3-.2-2.5.7.7-2.4-.2-.3A8 8 0 0 1 12 4zm-3 3.5c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5 0 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3l-1.9-.9c-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.4-.5-.6-.5z"/></svg>
+    <span>Ask on WhatsApp</span>
+  </a>
+  <div class="list-bar" id="listBar"><button type="button" id="listOpen" aria-haspopup="dialog"><span id="listBarLabel">My list (0)</span><span id="listBarTotal">View &rarr;</span></button></div>
+  <div class="sheet-bg" id="sheetBg">
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" id="sheet">
+      <div class="sheet-head"><h2 id="sheetTitle">My list</h2><button type="button" class="icon-btn" id="sheetClose" aria-label="Close list">&times;</button></div>
+      <div id="sheetItems"></div>
+      <div id="sheetTotal"></div>
+      <div class="field" style="margin-top:12px;">
+        <label for="lType">Delivery type</label>
+        <select id="lType">
+          <option value="">Not sure yet</option>
+          <option value="nairobi">Nairobi rider</option>
+          <option value="outside">Outside Nairobi by courier or PSV</option>
+        </select>
+      </div>
+      <div class="field"><label for="lTown">Town or area <small>(optional)</small></label><input id="lTown" type="text" maxlength="80"></div>
+      <button type="button" class="btn-wa" id="listSend">Send list on WhatsApp</button>
+      <button type="button" class="link-btn" id="listClear">Clear list</button>
+    </div>
   </div>
 
 <script>
@@ -467,6 +655,9 @@
     }
   }
 
+</script>
+<script id="vl-data">
+  // DOM-free block: catalog data + WhatsApp helpers (tested by scripts/check-site.mjs)
   // All flavors — used for both hero slideshow (subset) and full catalog grid
   const products = [
     {name:"Lemonade", desc:"Bright citrus lemonade with a cool finish.", img:"images/lemonade.jpg", price:"KSh 4,500", device:"70k"},
@@ -573,6 +764,51 @@
     {name:"Solo Bar 50K", price:"KSh 4,000"}
   ];
 
+  // ---- WhatsApp helpers (every wa.me link on the page is built here or hand-encoded in the HTML)
+  const WA_NUMBER = "254742405841";
+  function wellFormed(t){
+    t = String(t);
+    return t.toWellFormed ? t.toWellFormed() : t.replace(/([\uD800-\uDBFF][\uDC00-\uDFFF])|[\uD800-\uDFFF]/g, (m,pair)=>pair||'');
+  }
+  function waUrl(text){
+    // encodeURIComponent leaves ! ' ( ) * unescaped; encode them too so the link is strictly percent-encoded
+    return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(wellFormed(text)).replace(/[!'()*]/g, c => "%" + c.charCodeAt(0).toString(16).toUpperCase());
+  }
+  function parsePrice(str){ const m = /(\d[\d,]*)/.exec(str || ""); return m ? parseInt(m[1].replace(/,/g,''),10) : null; }
+  function fmtKsh(n){ return "KSh " + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+  const DELIVERY_LABELS = { nairobi:"Nairobi (our rider)", outside:"Outside Nairobi (courier or PSV)" };
+  function clean(t, max){ return String(t || "").replace(/\s+/g, " ").trim().slice(0, max); }
+
+  // items: [{label, price:number|null, qty}]
+  function listTotal(items){
+    if(!items.length || items.some(i => i.price == null)) return null;
+    return items.reduce((sum,i) => sum + i.price * i.qty, 0);
+  }
+  function buildListMessage(items, deliveryKey, town){
+    const lines = ["Hi Vape Loft! I'd like to order:"];
+    items.forEach(i => {
+      lines.push("- " + i.qty + " x " + i.label + (i.price != null ? " @ " + fmtKsh(i.price) + " = " + fmtKsh(i.price * i.qty) : ""));
+    });
+    if(DELIVERY_LABELS[deliveryKey]) lines.push("Delivery: " + DELIVERY_LABELS[deliveryKey]);
+    if(clean(town, 80)) lines.push("Town/area: " + clean(town, 80));
+    const total = listTotal(items);
+    if(total != null) lines.push("Estimated total (delivery fee not included): " + fmtKsh(total));
+    else if(items.some(i => i.price == null)) lines.push("Some items have no price listed, so there is no total yet. Please confirm those prices.");
+    lines.push("Please confirm availability and the delivery fee.");
+    return lines.join("\n");
+  }
+  function buildNeedMessage(f){
+    const lines = ["Hi Vape Loft!"];
+    if(clean(f.name, 60)) lines.push("Name: " + clean(f.name, 60));
+    if(clean(f.town, 80)) lines.push("Town/area: " + clean(f.town, 80));
+    if(DELIVERY_LABELS[f.type]) lines.push("Delivery: " + DELIVERY_LABELS[f.type]);
+    lines.push(clean(f.want, 500) ? "I'm looking for: " + clean(f.want, 500) : "I'd like some help choosing. What do you have available?");
+    lines.push("Please confirm availability and the delivery fee.");
+    return lines.join("\n");
+  }
+</script>
+<script id="vl-app">
+
   // Hero slideshow — feature a rotating subset
   const heroFlavors = ["Lemonade","Kiwi Passionfruit Guava","Mexico Mango","Blackberry POP","Strawberry Ice","Grape Ice","Blue Razz","Peach Ice","Sour Apple","Cherry POP"];
   const slides = products.filter(p => heroFlavors.includes(p.name));
@@ -583,17 +819,17 @@
   let timer;
 
   slides.forEach((s,i)=>{
-    const waMsg = encodeURIComponent(`Hi Vape Loft! I'd like to order: VOOM 70K ${s.name} - ${s.price}. Please confirm availability and delivery.`);
+    const waLink = waUrl(`Hi Vape Loft! I'd like to order: VOOM 70K ${s.name} - ${s.price}. Please confirm availability and delivery.`);
     const el = document.createElement('div');
     el.className = 'slide' + (i===0?' active':'');
     el.innerHTML = `
-      <div class="slide-bg"><img src="${s.img}" alt="VOOM 70K ${s.name} disposable vape — Vape Loft, Westlands Nairobi" loading="eager"></div>
+      <div class="slide-bg"><img src="${s.img}" width="800" height="1066" alt="VOOM 70K ${s.name} disposable vape — Vape Loft, Westlands Nairobi" loading="${i===0?'eager':'lazy'}"></div>
       <div class="slide-content">
         <span class="slide-eyebrow">VOOM 70K &middot; 70,000 Puffs</span>
         <h2 class="slide-title">${s.name}</h2>
         <p class="slide-sub">${s.desc}</p>
         <div class="slide-actions">
-          <a href="https://wa.me/254742405841?text=${waMsg}" target="_blank" class="btn btn-primary">Order via WhatsApp</a>
+          <a href="${waLink}" target="_blank" rel="noopener" class="btn btn-primary">Order via WhatsApp</a>
           <a href="#catalog" class="btn btn-ghost">See Full Range</a>
         </div>
       </div>
@@ -602,6 +838,7 @@
 
     const dot = document.createElement('button');
     dot.className = 'dot' + (i===0?' active':'');
+    dot.setAttribute('aria-label', 'Show slide ' + (i+1));
     dot.innerHTML = '<span class="fill"></span>';
     dot.addEventListener('click', ()=>goToSlide(i));
     dotsWrap.appendChild(dot);
@@ -620,7 +857,8 @@
   }
   function nextSlide(){ goToSlide((current+1) % slides.length); }
   function prevSlide(){ goToSlide((current-1+slides.length) % slides.length); }
-  function resetTimer(){ clearInterval(timer); timer = setInterval(nextSlide, 5000); }
+  const reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function resetTimer(){ clearInterval(timer); if(!reduceMotion) timer = setInterval(nextSlide, 5000); }
   resetTimer();
 
   // Catalog grid — rendered per selected device
@@ -685,74 +923,281 @@
   const nicNote = document.getElementById('nicNote');
   const esc = t => String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 
+  const moreGrid = document.getElementById('moreGrid');
+  const moreSection = document.getElementById('more-devices');
+  const searchInput = document.getElementById('flavSearch');
+  const tabEls = document.querySelectorAll('.device-tab');
+  let activeDevice = '70k';
+  let query = '';
+
+  // ---- My list (kept in sessionStorage; every access is wrapped so a failure never breaks the page)
+  const LIST_KEY = 'vl_list';
+  function loadList(){
+    try{
+      const a = JSON.parse(sessionStorage.getItem(LIST_KEY) || '[]');
+      if(!Array.isArray(a)) return [];
+      return a.filter(i => i && typeof i.id === 'string' && typeof i.label === 'string' && Number.isInteger(i.qty) && i.qty > 0 && (i.price === null || Number.isFinite(i.price)))
+              .map(i => ({id:i.id.slice(0,120), label:i.label.slice(0,120), price:i.price, qty:Math.min(i.qty,99)}));
+    }catch(e){ return []; }
+  }
+  function saveList(){ try{ sessionStorage.setItem(LIST_KEY, JSON.stringify(list)); }catch(e){} }
+  let list = loadList();
+  const findItem = id => list.find(i => i.id === id);
+
+  function makeCard(item, o){
+    // item: {id,label,price:number|null}; o: {name, tag, meta, imgHtml, orderHref, orderText, textCard}
+    const card = document.createElement('div');
+    card.className = 'card' + (o.textCard ? ' text-card' : '');
+    card._item = item;
+    const priceHtml = item.price != null ? `<span class="price">${fmtKsh(item.price)}</span>` : `<span class="price ask">Ask on WhatsApp</span>`;
+    card.innerHTML = `
+      ${o.imgHtml || ''}
+      <div class="card-body">
+        <h3>${esc(o.name)}</h3>
+        ${o.tag ? `<div class="line-tag">${esc(o.tag)}</div>` : ''}
+        ${o.meta ? `<div class="puffs">${esc(o.meta)}</div>` : ''}
+        <div class="meta-row">${priceHtml}</div>
+        <div class="in-list" aria-live="polite"></div>
+        <div class="add-row">
+          <div class="stepper">
+            <button type="button" data-act="dec" aria-label="Decrease quantity">&minus;</button>
+            <span class="q" data-q>1</span>
+            <button type="button" data-act="inc" aria-label="Increase quantity">+</button>
+          </div>
+          <button type="button" class="add-btn" data-act="add">Add to list</button>
+        </div>
+        <a class="order-btn" href="${o.orderHref}" target="_blank" rel="noopener">${o.orderText} &rarr;</a>
+      </div>`;
+    card.querySelector('.add-btn').setAttribute('aria-label', 'Add ' + o.name + ' to list');
+    refreshInList(card);
+    return card;
+  }
+  function refreshInList(card){
+    const it = findItem(card._item.id);
+    card.querySelector('.in-list').textContent = it ? 'In your list: ' + it.qty : '';
+  }
+  function refreshAllInList(){ document.querySelectorAll('.card').forEach(c => { if(c._item) refreshInList(c); }); }
+  function onCardClick(e){
+    const btn = e.target.closest('button[data-act]');
+    if(!btn) return;
+    const card = btn.closest('.card');
+    if(!card || !card._item) return;
+    const qEl = card.querySelector('[data-q]');
+    let q = parseInt(qEl.textContent, 10) || 1;
+    const act = btn.dataset.act;
+    if(act === 'dec') qEl.textContent = Math.max(1, q - 1);
+    else if(act === 'inc') qEl.textContent = Math.min(99, q + 1);
+    else if(act === 'add'){
+      addToList(card._item, q);
+      qEl.textContent = '1';
+      btn.textContent = 'Added ✓';
+      setTimeout(() => { btn.textContent = 'Add to list'; }, 1200);
+    }
+  }
+  grid.addEventListener('click', onCardClick);
+  moreGrid.addEventListener('click', onCardClick);
+
+  const matchesQuery = text => query.split(' ').every(t => text.toLowerCase().includes(t));
+
   function renderCatalog(device){
-    const list = allProducts.filter(p => p.device === device);
+    activeDevice = device;
+    const searching = query.length > 0;
     const copy = deviceCopy[device];
-    const isNew = newLines.includes(device);
-    catalogTitle.textContent = copy.title;
-    catalogSub.textContent = copy.sub;
-    meteorSpecs.style.display = (device === 'meteor' || device === 'ultra') ? 'flex' : 'none';
+    const isNew = !searching && newLines.includes(device);
+    const list_ = searching
+      ? allProducts.filter(p => matchesQuery(p.name + ' ' + deviceCopy[p.device].deviceName))
+      : allProducts.filter(p => p.device === device);
+
+    tabEls.forEach(t => { const on = !searching && t.dataset.device === device; t.classList.toggle('active', on); t.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+    catalogTitle.textContent = searching ? 'Search results' : copy.title;
+    catalogSub.textContent = searching
+      ? (list_.length + ' flavour' + (list_.length === 1 ? '' : 's') + ' found across all lines. Clear the search to browse by line.')
+      : copy.sub;
+    const showSpecs = !searching && (device === 'meteor' || device === 'ultra');
+    meteorSpecs.style.display = showSpecs ? 'flex' : 'none';
     document.getElementById('meteorVideo').style.display = device === 'meteor' ? 'block' : 'none';
     document.getElementById('meteorSpecGroup').style.display = device === 'meteor' ? 'grid' : 'none';
     document.getElementById('ultraSpecGroup').style.display = device === 'ultra' ? 'grid' : 'none';
 
     // header images + spec strip for the new lines
-    nicNote.style.display = isNew ? 'block' : 'none';
+    nicNote.style.display = (isNew || searching) ? 'block' : 'none';
     lineShowcase.style.display = isNew ? 'flex' : 'none';
     lineShowcase.innerHTML = isNew
-      ? (copy.headImgs ? `<div class="line-imgs">${copy.headImgs.map(h=>`<img class="meteor-video" src="${h[0]}" alt="${esc(h[1])} — Vape Loft, Nairobi" loading="lazy">`).join('')}</div>` : '')
+      ? (copy.headImgs ? `<div class="line-imgs">${copy.headImgs.map(h=>`<img class="meteor-video" src="${h[0]}" width="200" height="280" alt="${esc(h[1])} — Vape Loft, Nairobi" loading="lazy">`).join('')}</div>` : '')
         + `<div class="specs-strip">${copy.specs.map(sp=>`<div class="spec"><span>${esc(sp[0])}</span>${esc(sp[1])}</div>`).join('')}</div>`
       : '';
 
     grid.innerHTML = '';
-    list.forEach(p=>{
-      const deviceName = copy.deviceName;
-      const waMsg = encodeURIComponent(p.price
+    list_.forEach(p=>{
+      const c = deviceCopy[p.device];
+      const deviceName = c.deviceName;
+      const price = parsePrice(p.price);
+      const waLink = waUrl(p.price
         ? `Hi Vape Loft! I'd like to order: ${deviceName} ${p.name} - ${p.price}. Please confirm availability and delivery.`
         : `Hi Vape Loft! I'd like to order: ${deviceName} ${p.name}. What is the price? Please also confirm availability and delivery.`);
       const imgHtml = p.img
-        ? `<div class="card-img"><img src="${p.img}" alt="${deviceName} ${p.name} flavor — buy online in Nairobi, Vape Loft" loading="lazy"></div>`
+        ? `<div class="card-img"><img src="${p.img}" width="400" height="400" alt="${esc(deviceName)} ${esc(p.name)} flavor — buy online in Nairobi, Vape Loft" loading="lazy" decoding="async"></div>`
         : `<div class="card-img placeholder"><strong>${esc(p.name)}</strong><span>Photo coming soon</span></div>`;
-      const priceHtml = p.price ? `<span class="price">${p.price}</span>` : `<span class="price ask">Ask on WhatsApp</span>`;
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        ${imgHtml}
-        <div class="card-body">
-          <h3>${p.name}</h3>
-          <div class="puffs">${copy.deviceLabel}</div>
-          <div class="meta-row">${priceHtml}</div>
-          <a class="order-btn" href="https://wa.me/254742405841?text=${waMsg}" target="_blank">${p.price ? 'Order via WhatsApp' : 'Ask price on WhatsApp'} &rarr;</a>
-        </div>
-      `;
-      grid.appendChild(card);
+      grid.appendChild(makeCard(
+        {id: p.device + '|' + p.name, label: deviceName + ' ' + p.name, price},
+        {name:p.name, tag: searching ? deviceName : '', meta:c.deviceLabel, imgHtml, orderHref:waLink, orderText: p.price ? 'Order via WhatsApp' : 'Ask price on WhatsApp'}
+      ));
     });
+    if(searching && !list_.length){
+      const d = document.createElement('p');
+      d.className = 'no-results';
+      d.innerHTML = 'No flavour matches &ldquo;' + esc(query) + '&rdquo;. <a href="' + waUrl("Hi Vape Loft! Do you have " + query + " available?") + '" target="_blank" rel="noopener">Ask us on WhatsApp</a> and we will check.';
+      grid.appendChild(d);
+    }
+    filterMore();
   }
 
   // More devices — text-only cards
-  const moreGrid = document.getElementById('moreGrid');
   moreDevices.forEach(d=>{
-    const waMsg = encodeURIComponent(`Hi Vape Loft! I'm interested in the ${d.name} (${d.price}). Which flavors do you have available?`);
-    const card = document.createElement('div');
-    card.className = 'card text-card';
-    card.innerHTML = `
-      <div class="card-body">
-        <h3>${d.name}</h3>
-        <div class="meta-row"><span class="price">${d.price}</span></div>
-        <a class="order-btn" href="https://wa.me/254742405841?text=${waMsg}" target="_blank">Ask about flavours on WhatsApp &rarr;</a>
-      </div>
-    `;
+    const waLink = waUrl(`Hi Vape Loft! I'm interested in the ${d.name} (${d.price}). Which flavors do you have available?`);
+    const card = makeCard(
+      {id:'more|' + d.name, label:d.name, price:parsePrice(d.price)},
+      {name:d.name, textCard:true, orderHref:waLink, orderText:'Ask about flavours on WhatsApp'}
+    );
+    card.dataset.search = d.name;
     moreGrid.appendChild(card);
   });
+  function filterMore(){
+    let shown = 0;
+    moreGrid.querySelectorAll('.card').forEach(c => {
+      const ok = !query || matchesQuery(c.dataset.search);
+      c.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    moreSection.style.display = (query && !shown) ? 'none' : '';
+  }
 
-  document.querySelectorAll('.device-tab').forEach(tab=>{
+  tabEls.forEach(tab=>{
     tab.addEventListener('click', ()=>{
-      document.querySelectorAll('.device-tab').forEach(t=>t.classList.remove('active'));
-      tab.classList.add('active');
+      query = ''; searchInput.value = '';
       renderCatalog(tab.dataset.device);
     });
   });
+  searchInput.addEventListener('input', ()=>{
+    query = clean(searchInput.value, 60).toLowerCase();
+    renderCatalog(activeDevice);
+  });
 
+  // ---- List bar + sheet
+  const sheetBg = document.getElementById('sheetBg');
+  const sheet = document.getElementById('sheet');
+  const sheetItems = document.getElementById('sheetItems');
+  const sheetTotal = document.getElementById('sheetTotal');
+  const listOpenBtn = document.getElementById('listOpen');
+  let lastFocus = null;
+
+  function addToList(item, qty){
+    const ex = findItem(item.id);
+    if(ex) ex.qty = Math.min(99, ex.qty + qty);
+    else list.push({id:item.id, label:item.label, price:item.price, qty:Math.min(99, qty)});
+    onListChanged();
+  }
+  function onListChanged(){
+    saveList();
+    const count = list.reduce((n,i) => n + i.qty, 0);
+    document.body.classList.toggle('has-list', count > 0);
+    document.getElementById('listBarLabel').textContent = 'My list (' + count + ')';
+    const t = listTotal(list);
+    document.getElementById('listBarTotal').innerHTML = t != null ? esc(fmtKsh(t)) + ' &rarr;' : 'View &rarr;';
+    refreshAllInList();
+    if(!count) closeSheet();
+    renderSheet();
+  }
+  function renderSheet(){
+    sheetItems.innerHTML = list.length ? '' : '<p class="sheet-empty">Your list is empty.</p>';
+    list.forEach(i => {
+      const row = document.createElement('div');
+      row.className = 'li';
+      row.dataset.id = i.id;
+      row.innerHTML = `
+        <div class="nm">${esc(i.label)}</div>
+        <div class="pr ${i.price == null ? 'ask' : ''}">${i.price != null ? esc(fmtKsh(i.price * i.qty)) : 'Ask on WhatsApp'}</div>
+        <div class="ctl">
+          <div class="stepper">
+            <button type="button" data-lact="dec" aria-label="Decrease quantity of ${esc(i.label)}">&minus;</button>
+            <span class="q">${i.qty}</span>
+            <button type="button" data-lact="inc" aria-label="Increase quantity of ${esc(i.label)}">+</button>
+          </div>
+          <button type="button" class="rm" data-lact="rm" aria-label="Remove ${esc(i.label)}">Remove</button>
+        </div>`;
+      sheetItems.appendChild(row);
+    });
+    const t = listTotal(list);
+    if(!list.length) sheetTotal.innerHTML = '';
+    else if(t != null) sheetTotal.innerHTML = `<div class="total"><span>Estimated total</span><span>${esc(fmtKsh(t))}</span></div><p class="total-note">Delivery fee not included. We confirm it on WhatsApp.</p>`;
+    else sheetTotal.innerHTML = `<p class="total-note">Items marked &ldquo;Ask on WhatsApp&rdquo; have no price listed, so there is no total yet. We will confirm those prices, and the delivery fee, on WhatsApp.</p>`;
+  }
+  sheetItems.addEventListener('click', e => {
+    const b = e.target.closest('button[data-lact]');
+    if(!b) return;
+    const id = b.closest('.li').dataset.id;
+    const it = findItem(id);
+    if(!it) return;
+    if(b.dataset.lact === 'inc') it.qty = Math.min(99, it.qty + 1);
+    else if(b.dataset.lact === 'dec') it.qty = Math.max(1, it.qty - 1);
+    else list = list.filter(x => x.id !== id);
+    onListChanged();
+  });
+  function openSheet(){
+    lastFocus = document.activeElement;
+    renderSheet();
+    sheetBg.classList.add('open');
+    document.body.classList.add('sheet-open');
+    document.getElementById('sheetClose').focus();
+  }
+  function closeSheet(){
+    if(!sheetBg.classList.contains('open')) return;
+    sheetBg.classList.remove('open');
+    document.body.classList.remove('sheet-open');
+    if(lastFocus && lastFocus.focus && document.body.contains(lastFocus)) lastFocus.focus();
+  }
+  listOpenBtn.addEventListener('click', openSheet);
+  document.getElementById('sheetClose').addEventListener('click', closeSheet);
+  sheetBg.addEventListener('click', e => { if(e.target === sheetBg) closeSheet(); });
+  document.addEventListener('keydown', e => {
+    if(!sheetBg.classList.contains('open')) return;
+    if(e.key === 'Escape'){ closeSheet(); return; }
+    if(e.key === 'Tab'){
+      const f = Array.from(sheet.querySelectorAll('button, input, select, a[href]')).filter(x => x.offsetParent !== null);
+      if(!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
+  document.getElementById('listClear').addEventListener('click', () => { list = []; onListChanged(); });
+  document.getElementById('listSend').addEventListener('click', () => {
+    if(!list.length) return;
+    const msg = buildListMessage(list, document.getElementById('lType').value, document.getElementById('lTown').value);
+    window.open(waUrl(msg), '_blank', 'noopener');
+  });
+
+  // ---- "Tell us what you need" panel
+  const HINTS = {
+    nairobi: "Our rider delivers in Nairobi and its environs. The fee is from KSh 200, depending on distance. You pay on delivery.",
+    outside: "Sent by courier or PSV (for example G4S, Easy Coach). Payment is made first, before we send, and a receipt follows. We confirm the fee and time on WhatsApp."
+  };
+  const nType = document.getElementById('nType');
+  nType.addEventListener('change', () => { document.getElementById('nHint').textContent = HINTS[nType.value] || ''; });
+  document.getElementById('needForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const msg = buildNeedMessage({
+      name: document.getElementById('nName').value,
+      town: document.getElementById('nTown').value,
+      type: nType.value,
+      want: document.getElementById('nWant').value
+    });
+    window.open(waUrl(msg), '_blank', 'noopener');
+  });
+
+  // init
+  if(reduceMotion){ const v = document.getElementById('meteorVideo'); if(v){ v.removeAttribute('autoplay'); v.pause(); v.setAttribute('controls',''); } }
+  onListChanged();
   renderCatalog('70k');
 </script>
 </body>
