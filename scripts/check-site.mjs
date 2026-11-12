@@ -240,5 +240,55 @@ for (const [file, src] of Object.entries(html)) {
   console.log(`  ${file}: ${lazyOk}/${tags.length} <img> tags set loading=`);
 }
 
+// ============ 8. product pages ============
+section('8. Product pages (links, images, JSON-LD, sitemap)');
+const PRODUCT_PAGES = {
+  'voom-70k-kenya': { price: '4500', name: 'VOOM 70K', flavours: 22 },
+  'voom-orbis-15k-kenya': { price: '2000', name: 'VOOM Orbis 15K', flavours: 8 },
+  'voom-aura-13k-pod-system-kenya': { price: '2600', name: 'VOOM Aura 13K', flavours: 16 },
+  'nine-star-bar-plus-kenya': { price: null, name: 'Nine Star Bar Plus', flavours: 12 },
+};
+for (const [slug, spec] of Object.entries(PRODUCT_PAGES)) {
+  const f = `${slug}/index.html`, u = `/${slug}/`;
+  check(exists(f), `${f} exists`);
+  if (!exists(f)) continue;
+  const src = html[f] ?? read(f);
+  const short = spec.name.split(' ').slice(0, 2).join(' ');
+  check(locs.includes(ORIGIN + u), `${slug}: listed in sitemap.xml`);
+  check((src.match(/<h1[\s>]/g) || []).length === 1, `${slug}: exactly one H1`);
+  const t = /<title>([^<]*)<\/title>/.exec(src)?.[1] || '', d = /<meta name="description" content="([^"]*)"/.exec(src)?.[1] || '';
+  check(/Kenya/.test(t) && t.includes(short), `${slug}: title names product and Kenya`);
+  check(/Kenya|Nairobi/.test(d) && d.length <= 160, `${slug}: meta description mentions Kenya/Nairobi, <=160 chars`);
+  check(src.includes(`property="og:url" content="${ORIGIN + u}"`) && /property="og:image"/.test(src), `${slug}: Open Graph url and image`);
+  check(html['index.html'].split(`href="${u}"`).length - 1 >= 2, `${slug}: linked from homepage (tabs row and footer)`);
+  for (const other of Object.keys(PRODUCT_PAGES)) if (other !== slug) check(src.includes(`href="/${other}/"`), `${slug}: links to /${other}/`);
+  for (const l of ['/vape-delivery-nairobi/', '/vape-delivery-kenya/', '/']) check(src.includes(`href="${l}"`), `${slug}: links to ${l}`);
+  const cards = (src.match(/<li class="card">/g) || []).length;
+  check(cards === spec.flavours, `${slug}: ${cards} flavour cards (expected ${spec.flavours})`);
+  const imgs = [...src.matchAll(/<img\b[^>]*>/g)].map((m) => m[0]);
+  check(imgs.length > 0 && imgs.every((i) => /loading="lazy"/.test(i) && /alt="[^"]{8,}"/.test(i) && /width="\d+"/.test(i) && /height="\d+"/.test(i)), `${slug}: ${imgs.length} images lazy-loaded with alt, width, height`);
+  const waLinks = [...src.matchAll(/href="(https:\/\/wa\.me\/[^"]*)"/g)].map((m) => m[1]);
+  check(waLinks.some((l) => decodeURIComponent(l.split('?text=')[1] || '').includes(short)), `${slug}: WhatsApp message names the product`);
+  const lds = inlineScripts(src).filter((x) => /ld\+json/.test(x.attrs)).map((x) => JSON.parse(x.code));
+  const prod = lds.find((j) => j['@type'] === 'Product'), faq = lds.find((j) => j['@type'] === 'FAQPage');
+  check(!!prod && prod.name && prod.brand?.name && prod.description && prod.image, `${slug}: Product JSON-LD has name, brand, description, image`);
+  if (prod) {
+    const o = prod.offers || {};
+    check(o.priceCurrency === 'KES' && /InStock$/.test(o.availability || ''), `${slug}: Offer has KES and InStock`);
+    check(spec.price ? o.price === spec.price : !('price' in o), `${slug}: Offer price ${spec.price ?? 'omitted (ask on WhatsApp)'}`);
+    check(String(prod.image).startsWith(ORIGIN + '/') && exists(String(prod.image).slice(ORIGIN.length + 1)), `${slug}: Product image URL resolves to a file`);
+    if (spec.price) check(src.includes('KSh ' + Number(spec.price).toLocaleString('en-US')), `${slug}: page shows the KSh price`);
+    else check(/ask on WhatsApp/i.test(src), `${slug}: page says ask on WhatsApp`);
+  }
+  const nq = faq?.mainEntity?.length || 0;
+  check(nq >= 4 && nq <= 8, `${slug}: FAQPage JSON-LD with ${nq} questions (4-8 expected)`);
+  check((src.match(/<details class="faq">/g) || []).length === nq, `${slug}: visible FAQ count matches FAQPage JSON-LD`);
+  check(/from KSh 200, depending on distance/.test(src) && /courier or PSV/.test(src), `${slug}: Delivery section has rider fee and courier facts`);
+}
+if (api) {
+  const priceOf = (dev) => [...new Set(api.allProducts.filter((p) => p.device === dev).map((p) => p.price))];
+  check(priceOf('70k')[0] === 'KSh 4,500' && priceOf('orbis')[0] === 'KSh 2,000' && priceOf('aura')[0] === 'KSh 2,600' && priceOf('ninestar')[0] === null, 'product page prices match homepage data');
+}
+
 console.log(`\n${failures ? 'FAILED' : 'PASSED'}: ${passes} checks passed, ${failures} failed`);
 process.exit(failures ? 1 : 0);
