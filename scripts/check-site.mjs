@@ -348,8 +348,65 @@ section('10. Price consistency (no stale prices, expected prices everywhere)');
   for (const f of [...Object.keys(html), 'scripts/check-site.mjs'.replace(/.*/, '')].filter(Boolean)) {
     const src = html[f];
     if (typeof src !== 'string') continue;
-    for (const [re, why] of STALE) check(!re.test(src), `${f}: no ${why}`);
+    for (const [re, why] of STALE) {
+      if (/misspelt brand/.test(why) && f.startsWith('vapengin-')) continue; // the Vapengin FAQ answers the Vapegin search
+      check(!re.test(src), `${f}: no ${why}`);
+    }
     if (f.startsWith('nine-star')) check(!/Ask%20on%20WhatsApp/.test(src), `${f}: no "Ask on WhatsApp" price links`);
+  }
+}
+
+// ============ 11. Vapengin pages ============
+section('11. Vapengin pages: Jupiter 6500 and Jupiter Plus 13K');
+{
+  const VP = {
+    'vapengin-jupiter-6500-kenya': { name: 'Vapengin Jupiter 6500', price: '2900', shown: 'KSh 2,900', flavours: 13, other: 'vapengin-jupiter-plus-13k-kenya', card: 'Vapengin 6,500 puffs' },
+    'vapengin-jupiter-plus-13k-kenya': { name: 'Vapengin Jupiter Plus 13K', price: '3200', shown: 'KSh 3,200', flavours: 14, other: 'vapengin-jupiter-6500-kenya', card: 'Vapengin 13K puffs' },
+  };
+  for (const [slug, v] of Object.entries(VP)) {
+    const f = `${slug}/index.html`, u = `/${slug}/`;
+    check(exists(f), `${f} exists`);
+    if (!exists(f)) continue;
+    const src = html[f];
+    check(locs.includes(ORIGIN + u), `${slug}: listed in sitemap.xml`);
+    check((src.match(/<h1[\s>]/g) || []).length === 1 && src.includes(`<h1>${v.name} vape in Kenya</h1>`), `${slug}: one H1 naming the product`);
+    const t = /<title>([^<]*)<\/title>/.exec(src)?.[1] || '', d = /<meta name="description" content="([^"]*)"/.exec(src)?.[1] || '';
+    check(t.includes(v.name) && /Kenya/.test(t) && t.length <= 62, `${slug}: title names product and Kenya, <=62 chars (${t.length})`);
+    check(d.includes(v.shown) && d.length <= 160, `${slug}: meta description includes ${v.shown}, <=160 chars`);
+    check(src.includes(`property="og:url" content="${ORIGIN + u}"`) && /property="og:title"/.test(src) && /property="og:description"/.test(src), `${slug}: Open Graph tags`);
+    check(!/<img\b/i.test(src) && !/og:image/.test(src), `${slug}: no images`);
+    check(!/https?:\/\/(?!wa\.me|vapeloft\.co\.ke|schema\.org|fonts\.googleapis\.com|www\.sitemaps)/.test(src), `${slug}: no hotlinks to other sites`);
+    const cards = (src.match(/<li class="card fl"/g) || []).length;
+    check(cards === v.flavours, `${slug}: ${cards} flavour cards (expected ${v.flavours})`);
+    const orders = [...src.matchAll(/<li class="card fl"[^>]*>.*?<strong>([^<]+)<\/strong>.*?href="([^"]+)"[^>]*>Order on WhatsApp<\/a><\/li>/g)];
+    check(orders.length === v.flavours, `${slug}: every flavour card has an "Order on WhatsApp" button`);
+    let badMsg = 0;
+    for (const [, fl, url] of orders) {
+      checkWa(url, `${slug} ${fl}`);
+      const msg = decodeURIComponent(url.split('?text=')[1] || '');
+      if (!(msg.includes(v.name) && msg.includes(fl.replace(/&amp;/g, '&')) && msg.includes(v.shown))) badMsg++;
+    }
+    check(badMsg === 0, `${slug}: every WhatsApp message names product, flavour and price`);
+    check(new Set(orders.map((o) => o[1])).size === v.flavours, `${slug}: flavour names are unique`);
+    for (const l of [`/${v.other}/`, '/vape-delivery-nairobi/', '/vape-delivery-kenya/', '/vapes-kenya/', '/']) check(src.includes(`href="${l}"`), `${slug}: links to ${l}`);
+    check(src.includes(`href="/${slug}/"`) && html[`${v.other}/index.html`]?.includes(`href="/${slug}/"`), `${slug}: footer links here, and from ${v.other}`);
+    const lds = inlineScripts(src).filter((x) => /ld\+json/.test(x.attrs)).map((x) => JSON.parse(x.code));
+    const prod = lds.find((j) => j['@type'] === 'Product'), faq = lds.find((j) => j['@type'] === 'FAQPage');
+    check(prod?.name === v.name && prod?.brand?.name === 'Vapengin', `${slug}: Product JSON-LD name and brand Vapengin`);
+    const o = prod?.offers || {};
+    check(o.priceCurrency === 'KES' && o.price === v.price && /InStock$/.test(o.availability || ''), `${slug}: Offer KES ${v.price} InStock`);
+    check(src.includes(v.shown), `${slug}: page shows ${v.shown}`);
+    const nq = faq?.mainEntity?.length || 0;
+    check(nq >= 4 && nq <= 6 && (src.match(/<details class="faq">/g) || []).length === nq, `${slug}: FAQPage (${nq} questions, 4-6) matches visible FAQ`);
+    check((faq?.mainEntity || []).some((q) => q.name === 'Is it Vapegin or Vapengin?'), `${slug}: FAQ answers "Is it Vapegin or Vapengin?"`);
+    check(/from KSh 200, depending on distance/.test(src) && /courier or PSV/.test(src), `${slug}: Delivery section has rider fee and courier facts`);
+    check(!/Vapegin/.test(src.replace(/Is it Vapegin or Vapengin\?|Some people search for it as Vapegin/g, '')), `${slug}: "Vapegin" appears only in the FAQ`);
+    // homepage card links here
+    check(html['index.html'].includes(`name:"${v.card}"`) && html['index.html'].includes(`page:"${u}"`), `homepage More devices card "${v.card}" links to ${u}`);
+    check(html['index.html'].includes(`<a href="${u}">`), `homepage footer links to ${u}`);
+  }
+  if (api) {
+    check(api.moreDevices.filter((d) => d.page).length === 2, 'homepage: exactly the two Vapengin cards carry a page link');
   }
 }
 
