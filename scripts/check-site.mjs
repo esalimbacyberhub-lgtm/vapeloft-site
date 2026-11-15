@@ -200,10 +200,10 @@ if (api) {
     check(decoded === t.toWellFormed(), `waUrl round-trips ${JSON.stringify(t).slice(0, 50)}`);
   }
   // message builders
-  const priced = [{ label: 'VOOM 70K Lemonade', price: 4500, qty: 2 }, { label: 'VOOM Orbis 15K Mixed Berry', price: 2000, qty: 1 }];
+  const priced = [{ label: 'VOOM 70K Lemonade', price: 3500, qty: 2 }, { label: 'VOOM Orbis 15K Mixed Berry', price: 1500, qty: 1 }];
   const mixed = [...priced, { label: 'Nine Star Bar Plus Grape Ice', price: null, qty: 3 }];
   let msg = api.buildListMessage(priced, 'nairobi', 'Westlands');
-  check(msg.includes('Estimated total (delivery fee not included): KSh 11,000'), 'list message: total when every item priced (2x4500 + 2000 = KSh 11,000)');
+  check(msg.includes('Estimated total (delivery fee not included): KSh 8,500'), 'list message: total when every item priced (2x3500 + 1500 = KSh 8,500)');
   check(msg.includes('Nairobi (our rider)') && msg.includes('Westlands'), 'list message: includes delivery type and town');
   msg = api.buildListMessage(mixed, 'outside', '');
   check(!/Estimated total/.test(msg), 'list message: no total when an item has no price');
@@ -248,10 +248,10 @@ for (const [file, src] of Object.entries(html)) {
 section('8. Product pages (links, images, JSON-LD, sitemap)');
 const PRODUCT_PAGES_LIST = ['voom-70k-kenya', 'voom-orbis-15k-kenya', 'voom-aura-13k-pod-system-kenya', 'nine-star-bar-plus-kenya'];
 const PRODUCT_PAGES = {
-  'voom-70k-kenya': { price: '4500', name: 'VOOM 70K', flavours: 22 },
-  'voom-orbis-15k-kenya': { price: '2000', name: 'VOOM Orbis 15K', flavours: 8 },
-  'voom-aura-13k-pod-system-kenya': { price: '2600', name: 'VOOM Aura 13K', flavours: 16 },
-  'nine-star-bar-plus-kenya': { price: null, name: 'Nine Star Bar Plus', flavours: 12 },
+  'voom-70k-kenya': { price: '3500', name: 'VOOM 70K', flavours: 22 },
+  'voom-orbis-15k-kenya': { price: '1500', name: 'VOOM Orbis 15K', flavours: 8 },
+  'voom-aura-13k-pod-system-kenya': { price: '2500', name: 'VOOM Aura 13K', flavours: 16 },
+  'nine-star-bar-plus-kenya': { price: '2800', name: 'Nine Star Bar Plus', flavours: 12 },
 };
 for (const [slug, spec] of Object.entries(PRODUCT_PAGES)) {
   const f = `${slug}/index.html`, u = `/${slug}/`;
@@ -292,7 +292,7 @@ for (const [slug, spec] of Object.entries(PRODUCT_PAGES)) {
 }
 if (api) {
   const priceOf = (dev) => [...new Set(api.allProducts.filter((p) => p.device === dev).map((p) => p.price))];
-  check(priceOf('70k')[0] === 'KSh 4,500' && priceOf('orbis')[0] === 'KSh 2,000' && priceOf('aura')[0] === 'KSh 2,600' && priceOf('ninestar')[0] === null, 'product page prices match homepage data');
+  check(priceOf('70k')[0] === 'KSh 3,500' && priceOf('orbis')[0] === 'KSh 1,500' && priceOf('aura')[0] === 'KSh 2,500' && priceOf('ninestar')[0] === 'KSh 2,800', 'product page prices match homepage data');
 }
 
 // ============ 9. landing pages (vapes-nairobi, vapes-kenya) ============
@@ -314,9 +314,42 @@ for (const slug of ['vapes-nairobi', 'vapes-kenya']) {
   check(!!lds.find((j) => j['@type'] === 'BreadcrumbList'), `${slug}: BreadcrumbList JSON-LD`);
   check(/from KSh 200, depending on distance/.test(src) && /courier or PSV/.test(src), `${slug}: rider fee and courier facts`);
   // price table must match the homepage data
-  if (api) for (const [dev, label] of [['70k', 'VOOM 70K'], ['ultra', 'VOOM 70K Ultra'], ['meteor', 'VOOM Meteor'], ['orbis', 'VOOM Orbis 15K'], ['aura', 'VOOM Aura 13K Pod + Battery']]) {
+  if (api) for (const [dev, label] of [['70k', 'VOOM 70K'], ['ultra', 'VOOM 70K Ultra'], ['meteor', 'VOOM Meteor'], ['orbis', 'VOOM Orbis 15K'], ['aura', 'VOOM Aura 13K Pod + Battery'], ['ninestar', 'Nine Star Bar Plus']]) {
     const price = api.allProducts.find((p) => p.device === dev).price;
     check(new RegExp(`${label.replace(/[+]/g, '\\+')}</a><br>[\\s\\S]*?<td>\\d+</td><td>${price}</td>`).test(src), `${slug}: ${label} price ${price} matches homepage data`);
+  }
+}
+
+// ============ 10. price consistency ============
+section('10. Price consistency (no stale prices, expected prices everywhere)');
+{
+  const EXPECT = { '70k': 'KSh 3,500', ultra: 'KSh 3,700', meteor: 'KSh 3,500', orbis: 'KSh 1,500', aura: 'KSh 2,500', ninestar: 'KSh 2,800', aurapod: null };
+  if (api) {
+    for (const [dev, price] of Object.entries(EXPECT)) {
+      const ps = api.allProducts.filter((p) => p.device === dev);
+      check(ps.length > 0 && ps.every((p) => p.price === price), `homepage data: every ${dev} flavour is ${price ?? 'Ask on WhatsApp'}`);
+    }
+    const md = Object.fromEntries(api.moreDevices.map((d) => [d.name, d.price]));
+    const WANT = { 'Vapengin 6,500 puffs': 'KSh 2,900', 'Vapengin 13K puffs': 'KSh 3,200', 'Lost Mary MT 35K': 'KSh 3,700', 'Elfbar Ice King 30K': 'KSh 3,700', 'Elfbar Raya 25K': 'KSh 3,700', 'Solo Bar 50K': 'KSh 4,000' };
+    check(JSON.stringify(md) === JSON.stringify(WANT), 'More devices: exact names and prices (no VOOM 20K cards)');
+  }
+  // [stale regex, description] searched in every page's source, including encoded WhatsApp links
+  const STALE = [
+    [/VOOM 70K[^<"]{0,80}KSh(?: |%20)4(?:,|%2C)500|KSh(?: |%20)4(?:,|%2C)500/, 'old VOOM 70K price KSh 4,500'],
+    [/Orbis[^<]{0,120}KSh 2,000|KSh(?: |%20)2(?:,|%2C)000/, 'old Orbis price KSh 2,000'],
+    [/Aura[^<]{0,160}KSh 2,600|KSh(?: |%20)2(?:,|%2C)600/, 'old Aura price KSh 2,600'],
+    [/"price": "(?:4500|2000|2600)"/, 'old JSON-LD price'],
+    [/Nine Star[^<]{0,120}(?:ask us for the price|ask on WhatsApp|price on request)/i, 'Nine Star still "ask for price"'],
+    [/VOOM 20K/, 'VOOM 20K more-devices entry'],
+    [/Vapegin/i, 'misspelt brand "Vapegin"'],
+    [/Ice King 30K[^<]{0,20}KSh 3,600|Raya 25K[^<]{0,20}KSh 3,500/, 'old Elfbar prices'],
+    [/(?<!Elfbar )Raya 25K/, 'Raya 25K not named "Elfbar Raya 25K"'],
+  ];
+  for (const f of [...Object.keys(html), 'scripts/check-site.mjs'.replace(/.*/, '')].filter(Boolean)) {
+    const src = html[f];
+    if (typeof src !== 'string') continue;
+    for (const [re, why] of STALE) check(!re.test(src), `${f}: no ${why}`);
+    if (f.startsWith('nine-star')) check(!/Ask%20on%20WhatsApp/.test(src), `${f}: no "Ask on WhatsApp" price links`);
   }
 }
 
