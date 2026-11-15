@@ -614,6 +614,8 @@
             <a href="/voom-orbis-15k-kenya/">VOOM Orbis 15K</a>
             <a href="/voom-aura-13k-pod-system-kenya/">VOOM Aura 13K Pod System</a>
             <a href="/nine-star-bar-plus-kenya/">Nine Star Bar Plus</a>
+            <a href="/vapengin-jupiter-6500-kenya/">Vapengin Jupiter 6500</a>
+            <a href="/vapengin-jupiter-plus-13k-kenya/">Vapengin Jupiter Plus 13K</a>
           </div>
           <div class="footer-col">
             <h5>Delivery</h5>
@@ -767,8 +769,8 @@
 
   // More devices — text-only, no flavor list
   const moreDevices = [
-    {name:"Vapengin 6,500 puffs", price:"KSh 2,900"},
-    {name:"Vapengin 13K puffs", price:"KSh 3,200"},
+    {name:"Vapengin 6,500 puffs", price:"KSh 2,900", page:"/vapengin-jupiter-6500-kenya/"},
+    {name:"Vapengin 13K puffs", price:"KSh 3,200", page:"/vapengin-jupiter-plus-13k-kenya/"},
     {name:"Lost Mary MT 35K", price:"KSh 3,700"},
     {name:"Elfbar Ice King 30K", price:"KSh 3,700"},
     {name:"Elfbar Raya 25K", price:"KSh 3,700"},
@@ -1071,6 +1073,13 @@
       {name:d.name, textCard:true, orderHref:waLink, orderText:'Ask about flavours on WhatsApp'}
     );
     card.dataset.search = d.name;
+    if(d.page){
+      const more = document.createElement('a');
+      more.className = 'order-btn';
+      more.href = d.page;
+      more.innerHTML = 'See flavours and details &rarr;';
+      card.querySelector('.card-body').appendChild(more);
+    }
     moreGrid.appendChild(card);
   });
   function filterMore(){
