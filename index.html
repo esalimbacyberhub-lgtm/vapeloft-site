@@ -769,8 +769,8 @@
 
   // More devices — text-only, no flavor list
   const moreDevices = [
-    {name:"Vapengin 6,500 puffs", price:"KSh 2,900", page:"/vapengin-jupiter-6500-kenya/"},
-    {name:"Vapengin 13K puffs", price:"KSh 3,200", page:"/vapengin-jupiter-plus-13k-kenya/"},
+    {name:"Vapengin 6,500 puffs", price:"KSh 2,950", page:"/vapengin-jupiter-6500-kenya/", note:"Pods from KSh 2,000"},
+    {name:"Vapengin 13K puffs", price:"KSh 3,200", page:"/vapengin-jupiter-plus-13k-kenya/", note:"Pods from KSh 2,000"},
     {name:"Lost Mary MT 35K", price:"KSh 3,700"},
     {name:"Elfbar Ice King 30K", price:"KSh 3,700"},
     {name:"Elfbar Raya 25K", price:"KSh 3,700"},
@@ -1070,7 +1070,7 @@
     const waLink = waUrl(`Hi Vape Loft! I'm interested in the ${d.name} (${d.price}). Which flavors do you have available?`);
     const card = makeCard(
       {id:'more|' + d.name, label:d.name, price:parsePrice(d.price)},
-      {name:d.name, textCard:true, orderHref:waLink, orderText:'Ask about flavours on WhatsApp'}
+      {name:d.name, meta:d.note, textCard:true, orderHref:waLink, orderText:'Ask about flavours on WhatsApp'}
     );
     card.dataset.search = d.name;
     if(d.page){

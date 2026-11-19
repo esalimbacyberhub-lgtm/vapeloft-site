@@ -330,17 +330,19 @@ section('10. Price consistency (no stale prices, expected prices everywhere)');
       check(ps.length > 0 && ps.every((p) => p.price === price), `homepage data: every ${dev} flavour is ${price ?? 'Ask on WhatsApp'}`);
     }
     const md = Object.fromEntries(api.moreDevices.map((d) => [d.name, d.price]));
-    const WANT = { 'Vapengin 6,500 puffs': 'KSh 2,900', 'Vapengin 13K puffs': 'KSh 3,200', 'Lost Mary MT 35K': 'KSh 3,700', 'Elfbar Ice King 30K': 'KSh 3,700', 'Elfbar Raya 25K': 'KSh 3,700', 'Solo Bar 50K': 'KSh 4,000' };
+    const WANT = { 'Vapengin 6,500 puffs': 'KSh 2,950', 'Vapengin 13K puffs': 'KSh 3,200', 'Lost Mary MT 35K': 'KSh 3,700', 'Elfbar Ice King 30K': 'KSh 3,700', 'Elfbar Raya 25K': 'KSh 3,700', 'Solo Bar 50K': 'KSh 4,000' };
     check(JSON.stringify(md) === JSON.stringify(WANT), 'More devices: exact names and prices (no VOOM 20K cards)');
   }
   // [stale regex, description] searched in every page's source, including encoded WhatsApp links
   const STALE = [
     [/VOOM 70K[^<"]{0,80}KSh(?: |%20)4(?:,|%2C)500|KSh(?: |%20)4(?:,|%2C)500/, 'old VOOM 70K price KSh 4,500'],
-    [/Orbis[^<]{0,120}KSh 2,000|KSh(?: |%20)2(?:,|%2C)000/, 'old Orbis price KSh 2,000'],
+    [/Orbis[^<]{0,120}KSh 2,000|(?<!Pods from )KSh(?: |%20)2(?:,|%2C)000/, 'old Orbis price KSh 2,000'],
     [/Aura[^<]{0,160}KSh 2,600|KSh(?: |%20)2(?:,|%2C)600/, 'old Aura price KSh 2,600'],
     [/"price": "(?:4500|2000|2600)"/, 'old JSON-LD price'],
     [/Nine Star[^<]{0,120}(?:ask us for the price|ask on WhatsApp|price on request)/i, 'Nine Star still "ask for price"'],
     [/VOOM 20K/, 'VOOM 20K more-devices entry'],
+    [/Vapengin[^\n]{0,200}?(?:2,900|2%2C900)|(?:2,900|2%2C900)[^\n]{0,120}?Vapengin|Jupiter(?:%20| )6500[^\n]{0,200}?(?:2,900|2%2C900)|Vapengin 6,500 puffs[^\n]{0,40}2,900/, 'old Vapengin Jupiter 6500 price KSh 2,900'],
+    [/"price": "2900"/, 'old Vapengin JSON-LD price 2900'],
     [/Vapegin/i, 'misspelt brand "Vapegin"'],
     [/Ice King 30K[^<]{0,20}KSh 3,600|Raya 25K[^<]{0,20}KSh 3,500/, 'old Elfbar prices'],
     [/(?<!Elfbar )Raya 25K/, 'Raya 25K not named "Elfbar Raya 25K"'],
@@ -349,6 +351,7 @@ section('10. Price consistency (no stale prices, expected prices everywhere)');
     const src = html[f];
     if (typeof src !== 'string') continue;
     for (const [re, why] of STALE) {
+      if (/old Orbis price|old JSON-LD price/.test(why) && f.startsWith('vapengin-')) continue; // KSh 2,000 / 2000 is the Jupiter 2 pod price there (checked in section 11)
       if (/misspelt brand/.test(why) && f.startsWith('vapengin-')) continue; // the Vapengin FAQ answers the Vapegin search
       check(!re.test(src), `${f}: no ${why}`);
     }
@@ -360,8 +363,8 @@ section('10. Price consistency (no stale prices, expected prices everywhere)');
 section('11. Vapengin pages: Jupiter 6500 and Jupiter Plus 13K');
 {
   const VP = {
-    'vapengin-jupiter-6500-kenya': { name: 'Vapengin Jupiter 6500', price: '2900', shown: 'KSh 2,900', flavours: 13, other: 'vapengin-jupiter-plus-13k-kenya', card: 'Vapengin 6,500 puffs' },
-    'vapengin-jupiter-plus-13k-kenya': { name: 'Vapengin Jupiter Plus 13K', price: '3200', shown: 'KSh 3,200', flavours: 14, other: 'vapengin-jupiter-6500-kenya', card: 'Vapengin 13K puffs' },
+    'vapengin-jupiter-6500-kenya': { name: 'Vapengin Jupiter 6500', price: '2950', shown: 'KSh 2,950', pod: { label: 'Jupiter 2 (6,500)', price: '2000', shown: 'KSh 2,000' }, flavours: 13, other: 'vapengin-jupiter-plus-13k-kenya', card: 'Vapengin 6,500 puffs' },
+    'vapengin-jupiter-plus-13k-kenya': { name: 'Vapengin Jupiter Plus 13K', price: '3200', shown: 'KSh 3,200', pod: { label: 'Jupiter Plus (13K)', price: '2200', shown: 'KSh 2,200' }, flavours: 14, other: 'vapengin-jupiter-6500-kenya', card: 'Vapengin 13K puffs' },
   };
   for (const [slug, v] of Object.entries(VP)) {
     const f = `${slug}/index.html`, u = `/${slug}/`;
@@ -393,11 +396,22 @@ section('11. Vapengin pages: Jupiter 6500 and Jupiter Plus 13K');
     const lds = inlineScripts(src).filter((x) => /ld\+json/.test(x.attrs)).map((x) => JSON.parse(x.code));
     const prod = lds.find((j) => j['@type'] === 'Product'), faq = lds.find((j) => j['@type'] === 'FAQPage');
     check(prod?.name === v.name && prod?.brand?.name === 'Vapengin', `${slug}: Product JSON-LD name and brand Vapengin`);
-    const o = prod?.offers || {};
+    const offers = [].concat(prod?.offers || []);
+    check(offers.length === 2 && offers.every((x) => x['@type'] === 'Offer'), `${slug}: Product JSON-LD has exactly two Offers (kit and pod)`);
+    const o = offers.find((x) => x.price === v.price) || {};
     check(o.priceCurrency === 'KES' && o.price === v.price && /InStock$/.test(o.availability || ''), `${slug}: Offer KES ${v.price} InStock`);
+    const po = offers.find((x) => x.price === v.pod.price) || {};
+    check(po.priceCurrency === 'KES' && /InStock$/.test(po.availability || '') && (po.name || '').includes(v.pod.label), `${slug}: pod Offer KES ${v.pod.price} (${v.pod.label})`);
+    check(!/2,?900/.test(JSON.stringify(prod || {})) && !/2,900|2%2C900/.test(src), `${slug}: no KSh 2,900 anywhere on the page`);
+    check(/<h2>Replacement pods<\/h2>/.test(src) && src.includes(`${v.pod.label} replacement pod is ${v.pod.shown}`) && /ask us which pod flavours are in stock/i.test(src), `${slug}: Replacement pods section shows ${v.pod.shown}`);
+    const podBtn = /href="([^"]+)"[^>]*>Order a pod on WhatsApp<\/a>/.exec(src)?.[1];
+    check(!!podBtn, `${slug}: "Order a pod on WhatsApp" button`);
+    if (podBtn) { checkWa(podBtn, `${slug} pod`); const pm = decodeURIComponent(podBtn.split('?text=')[1] || ''); check(pm.includes(v.name) && pm.includes(v.pod.shown), `${slug}: pod WhatsApp message names product and ${v.pod.shown}`); }
+    const podQ = (faq?.mainEntity || []).find((q) => q.name === 'Can I buy just a pod?');
+    check(!!podQ && podQ.acceptedAnswer.text.includes(v.pod.shown) && /WhatsApp/.test(podQ.acceptedAnswer.text) && src.includes('<summary>Can I buy just a pod?</summary>'), `${slug}: FAQ "Can I buy just a pod?" (JSON-LD and visible)`);
     check(src.includes(v.shown), `${slug}: page shows ${v.shown}`);
     const nq = faq?.mainEntity?.length || 0;
-    check(nq >= 4 && nq <= 6 && (src.match(/<details class="faq">/g) || []).length === nq, `${slug}: FAQPage (${nq} questions, 4-6) matches visible FAQ`);
+    check(nq >= 4 && nq <= 7 && (src.match(/<details class="faq">/g) || []).length === nq, `${slug}: FAQPage (${nq} questions, 4-7) matches visible FAQ`);
     check((faq?.mainEntity || []).some((q) => q.name === 'Is it Vapegin or Vapengin?'), `${slug}: FAQ answers "Is it Vapegin or Vapengin?"`);
     check(/from KSh 200, depending on distance/.test(src) && /courier or PSV/.test(src), `${slug}: Delivery section has rider fee and courier facts`);
     check(!/Vapegin/.test(src.replace(/Is it Vapegin or Vapengin\?|Some people search for it as Vapegin/g, '')), `${slug}: "Vapegin" appears only in the FAQ`);
@@ -406,6 +420,7 @@ section('11. Vapengin pages: Jupiter 6500 and Jupiter Plus 13K');
     check(html['index.html'].includes(`<a href="${u}">`), `homepage footer links to ${u}`);
   }
   if (api) {
+    check(api.moreDevices.filter((d) => d.page).length === 2 && api.moreDevices.filter((d) => d.note === 'Pods from KSh 2,000').length === 2 && api.moreDevices.filter((d) => d.note).every((d) => d.page), 'homepage: only the two Vapengin cards carry "Pods from KSh 2,000"');
     check(api.moreDevices.filter((d) => d.page).length === 2, 'homepage: exactly the two Vapengin cards carry a page link');
   }
 }
